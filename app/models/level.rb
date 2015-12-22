@@ -1,4 +1,6 @@
 class Level < ActiveRecord::Base
+  default_scope { order(position: :asc) }
+
   has_many :submissions
   has_many :characters
   has_one :conversation
