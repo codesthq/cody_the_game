@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require snapsvg
+//= require services/api_client
 //= require game_controller
 
 $(function(){
