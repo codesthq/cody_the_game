@@ -6,5 +6,5 @@
     = javascript_include_tag 'game'
     = csrf_meta_tags
   %body
-    #container{ data: { replace: "#container" } }
+    #container{ data: { replace: "#container", source: level_path } }
       = yield

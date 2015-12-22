@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require snapsvg
+//= require game_controller
 
 $(function(){
   $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
