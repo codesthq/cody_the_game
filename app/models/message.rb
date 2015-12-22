@@ -3,5 +3,5 @@ class Message < ActiveRecord::Base
   belongs_to :conversation
 
   validates :content, presence: true
-  validates :position, uniqueness: {scope: :conversation_id}
+  validates :position, uniqueness: { scope: :conversation_id }
 end
