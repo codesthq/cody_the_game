@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'snapsvg-rails'
+gem 'haml'
 
 group :development, :test do
   gem 'byebug'
