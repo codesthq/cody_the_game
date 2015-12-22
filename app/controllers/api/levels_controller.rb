@@ -1,7 +1,8 @@
 class API::LevelsController < API::BaseController
-  before_action :set_level, only: [:show]
+  before_action :set_level, only: :show
+
   def index
-    # test
+    render json: Level.all, each_serializer: LevelIndexSerializer, status: :ok
   end
 
   def show
