@@ -58,6 +58,7 @@ GEM
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
+    puma (2.14.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -110,6 +111,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   pg
+  puma
   rails (= 4.2.4)
   spring
   web-console (~> 2.0)
