@@ -6,4 +6,6 @@ class Level < ActiveRecord::Base
 
   validates :position, presence: true
   validates :position, uniqueness: true
+
+  acts_as_list
 end

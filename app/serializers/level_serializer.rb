@@ -1,6 +1,4 @@
-class LevelSerializer < ActiveModel::Serializer
-  attributes :id
-
+class LevelSerializer < LevelBaseSerializer
   has_many :characters
   has_one :conversation
   has_one :task

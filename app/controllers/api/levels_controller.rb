@@ -3,7 +3,7 @@ class API::LevelsController < API::BaseController
   before_action :check_level_permissions, only: [:show]
 
   def index
-    render json: Level.all, each_serializer: LevelIndexSerializer, status: :ok
+    render json: Level.all, each_serializer: LevelBaseSerializer, status: :ok
   end
 
   def show
