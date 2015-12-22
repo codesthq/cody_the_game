@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resource :ping, only: [:show]
     end
   end
+
+  get "/game", to: "game#show"
 end
