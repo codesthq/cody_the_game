@@ -1,7 +1,7 @@
 puts "Load levels"
 levels = []
 10.times do |i|
-  levels << Level.find_or_create_by(name: "Level #{i}", description: "lalalala lalalala alal #{i}")
+  levels << Level.find_or_create_by(name: "Level #{i}", description: "lalalala lalalala alal #{i}", position: i)
 end
 puts "Levels loaded"
 
