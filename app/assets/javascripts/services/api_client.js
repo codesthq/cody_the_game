@@ -1,10 +1,10 @@
 (function($) {
-  var APIClient = function(host) {
-    if (typeof host == 'undefined') throw "You must pass host parameter!";
+  var APIClient = function() {
+    var API_PATH = "/api";
 
-    var levels_path = host + '/levels';
+    var levels_path = API_PATH + '/levels';
     var level_path = function(id) { return levels_path + '/' + id; };
-    var submissions_path = host + '/submissions';
+    var submissions_path = API_PATH + '/submissions';
     var submission_path = function(id) { return submissions_path + '/' + id; };
 
     // List available levels
