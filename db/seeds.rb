@@ -24,8 +24,8 @@ puts "Conversations loaded!"
 puts "Load messages"
 
 conversations.each_with_index do |conversations, id|
-  Message.find_or_create_by!(position: 1, character_id: characters.first.id, conversation_id: conversations.id)
-  Message.find_or_create_by!(position: 2, character_id: characters[id + 1].try(:id), conversation_id: conversations.id)
+  Message.find_or_create_by!(position: 1, content: "message #{id}", character_id: characters.first.id, conversation_id: conversations.id)
+  Message.find_or_create_by!(position: 2, content: "message #{id}", character_id: characters[id + 1].try(:id), conversation_id: conversations.id)
 end
 
 puts "Messages loaded!"
