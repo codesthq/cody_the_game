@@ -1,4 +1,4 @@
-class API::V1::PingsController < API::V1::BaseController
+class API::PingsController < API::BaseController
   def index
     render json: { message: "Pong!" }, status: 200
   end

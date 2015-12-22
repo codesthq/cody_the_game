@@ -1,4 +1,4 @@
-class SubmissionsController < API::V1::BaseController
+class API::SubmissionsController < API::BaseController
   before_action :set_submission, only: :show
 
   def show
