@@ -10,6 +10,7 @@ gem 'active_model_serializers'
 gem 'snapsvg-rails'
 gem 'haml'
 gem 'codemirror-rails'
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'byebug'
