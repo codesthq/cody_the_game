@@ -63,11 +63,12 @@ $(function() {
 
     this.bootstrap = function() {
       // loading...
+      this.client = new APIClient();
       // loadLevelDefinitions
       // setupLevels
       // getCurrentLevel
       this.setupLevels();
-      
+
       // loading...
 
       if (self.hash !== "") {
@@ -86,37 +87,29 @@ $(function() {
     };
 
     this.setupLevels = function() {
-      self.levels.push(new GameLevel("A", self.source, function(){
-        self.levels[0].stop();
-        self.levels[1].load();
-        self.currentLevel = 1;
-        document.location.hash = 1;
-      }));
-      self.levels.push(new GameLevel("B", self.source, function(){
-        self.levels[1].stop();
-        self.levels[2].load();
-        self.currentLevel = 2;
-        document.location.hash = 2;
-      }));
-      self.levels.push(new GameLevel("C", self.source, function(){
-        self.levels[2].stop();
-        self.levels[3].load();
-        self.currentLevel = 3;
-        document.location.hash = 3;
-      }));
-      self.levels.push(new GameLevel("D", self.source, function(){
-        self.levels[3].stop();
-        self.levels[4].load();
-        self.currentLevel = 4;
-        document.location.hash = 4;
-      }));
-      self.levels.push(new GameLevel("E", self.source, function(){
-        self.levels[4].stop();
-        alert("OMG!");
-      }));
+      var lists = this.client.listLevels(function(data) {
+        var levelCount = data.levels.length;
+        self.currentLevel = 0;
+
+        $.each(data.levels, function(index, level) {
+          var i = index;
+          self.levels.push(new GameLevel(level.name, self.source, function() {
+            self.levels[i].stop();
+            if (i + 1 < levelCount) {
+              self.levels[i + 1].load();
+              self.currentLevel = i + 1;
+              document.location.hash = i + 1;
+            } else {
+              alert("CONGRATZZZ");
+            }
+          }));
+        });
+      }, function() {
+        console.error("Failed to download levels");
+      });
     };
 
-    // 
+    //
 
     this.new = function() {
       self.levels[0].load();
