@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  has_many :submissions
   belongs_to :level
 
   validates :content, presence: true
