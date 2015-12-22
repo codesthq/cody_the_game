@@ -1,18 +1,17 @@
-puts "Load characters"
-characters = []
-characters << Character.find_or_create_by(name: "Cody!")
-10.times do |i|
-  characters << Character.find_or_create_by(name: "Krzysiek #{i}")
-end
-puts "Characteres loaded"
-
 puts "Load levels"
 levels = []
 10.times do |i|
   levels << Level.find_or_create_by(name: "Level #{i}", description: "lalalala lalalala alal #{i}")
 end
-
 puts "Levels loaded"
+
+puts "Load characters"
+characters = []
+10.times do |i|
+  characters << Character.find_or_create_by(name: "Krzysiek #{i}", level_id: levels[i].id)
+end
+puts "Characteres loaded"
+
 puts "Load conversations"
 
 conversations = []
