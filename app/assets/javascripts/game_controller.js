@@ -17,6 +17,10 @@ $(function() {
     this.load = function() {
       $("#container").load(self.source, { level: self.name }, function() {
         self.listen();
+
+        var editor = CodeMirror.fromTextArea(document.getElementById("textarea"), {
+          lineNumbers: true
+        });
       });
     };
 

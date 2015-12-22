@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'snapsvg-rails'
 gem 'haml'
+gem 'codemirror-rails'
 
 group :development, :test do
   gem 'byebug'

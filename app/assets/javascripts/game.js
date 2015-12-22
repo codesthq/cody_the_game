@@ -15,6 +15,8 @@
 //= require snapsvg
 //= require services/api_client
 //= require game_controller
+//= require codemirror
+//= require codemirror/modes/ruby
 
 $(function(){
   $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
