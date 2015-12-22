@@ -27,4 +27,12 @@ ActiveRecord::Schema.define(version: 20151222093244) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "conversation_id"
+    t.integer  "character_id"
+    t.string   "content"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
 end
