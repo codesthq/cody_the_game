@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require snapsvg
+
+$(function(){
+  $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
+    var destination = $(this).data("replace");
+    $(destination).replaceWith(data);
+  });
+
+  // $(document.body).on("ajax:success", '[data-append]', function(e, data, status, xhr){
+  //   var destination = $(this).data("append");
+  //   $(destination).append(data);
+  // });
+
+  // $(document.body).on("ajax:success", '[data-prepend]', function(e, data, status, xhr){
+  //   var destination = $(this).data("prepend");
+  //   $(destination).prepend(data);
+  // });
+
+  // $(document.body).on("ajax:success", '[data-delete]', function(e, data, status, xhr){
+  //   var destination = $(this).data("delete");
+  //   $(destination).remove();
+  // });
+});
