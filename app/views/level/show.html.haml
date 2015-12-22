@@ -7,3 +7,11 @@
   #challenge{style: 'display: none;' }
     %textarea#submission
     %button{data: { action: :validate } } VALIDATE
+
+  #summary{style: 'display: none;' }
+    '... LOADING
+  #failed{style: 'display: none;' }
+    YOU FAILED, MAN!
+  #succeed{style: 'display: none;' }
+    YOU MY PUPPY!
+    %button{data: { action: :next } } GO! GO! GO!

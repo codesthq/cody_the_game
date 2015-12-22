@@ -66,8 +66,8 @@
     //   error - function to be called when an error occurs
     // data format:
     //
-    this.submitCode = function(code, callback, error) {
-      $.post(submissions_path, { submission: { content: code } })
+    this.submitCode = function(level_id, content, callback, error) {
+      $.post(submissions_path, { submission: { content: content, level_id: level_id } })
         .done(callback)
         .fail(error);
     }

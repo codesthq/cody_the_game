@@ -1,13 +1,17 @@
 $(function() {
 
-  var GameLevel = function(name, source, callback) {
-    this.name = name;
+  var apiClient = new APIClient();
+
+  var GameLevel = function(level, source, callback) {
+    this.level = level;
+    this.submission = null;
     this.source = source;
     this.callback = callback;
 
     var self = this;
 
     this.start = function() {
+      $("#summary").hide();
       $("#conversation").hide();
       $("#challenge").show();
 
@@ -20,15 +24,45 @@ $(function() {
     };
 
     this.load = function() {
-      $("#container").load(self.source, { level: self.name }, function() {
+      $("#container").load(self.source, { level: self.level.name }, function() {
         self.listen();
       });
     };
 
     this.validate = function() {
-      // self.editor.getValue();
+      var content = self.editor.getValue();
 
+      apiClient.submitCode(self.level.id, content, function(data) {
+        self.submission = data.submission;
+        $("#summary").show();
+        $("#challenge").hide();
+
+        setTimeout(function() { self.ping() }, 500);
+      }, function(e) {
+        console.error("Failed to submit content!");
+      });
+    };
+
+    this.next = function() {
       self.callback();
+    };
+
+    this.ping = function() {
+      apiClient.getSubmission(self.submission.id, function(data){
+        self.submission = data.submission;
+
+        var status = self.submission.status;
+
+        if (status === "pending") {
+          setTimeout(function() { self.ping() }, 500);
+        } else {
+          $("#summary").hide();
+          $("#failed").hide();
+          $("#" + status).show();
+        }
+      }, function() {
+        console.error("Failed to get submission!");
+      });
     };
 
     //
@@ -63,7 +97,6 @@ $(function() {
 
     this.bootstrap = function() {
       // loading...
-      this.client = new APIClient();
       // loadLevelDefinitions
       // setupLevels
       // getCurrentLevel
@@ -87,13 +120,13 @@ $(function() {
     };
 
     this.setupLevels = function() {
-      var lists = this.client.listLevels(function(data) {
+      var lists = apiClient.listLevels(function(data) {
         var levelCount = data.levels.length;
         self.currentLevel = 0;
 
         $.each(data.levels, function(index, level) {
           var i = index;
-          self.levels.push(new GameLevel(level.name, self.source, function() {
+          self.levels.push(new GameLevel(level, self.source, function() {
             self.levels[i].stop();
             if (i + 1 < levelCount) {
               self.levels[i + 1].load();
