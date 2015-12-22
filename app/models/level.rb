@@ -3,4 +3,7 @@ class Level < ActiveRecord::Base
   has_many :characters
   has_one :conversation
   has_one :task
+
+  validates :position, presence: true
+  validates :position, uniqueness: true
 end
