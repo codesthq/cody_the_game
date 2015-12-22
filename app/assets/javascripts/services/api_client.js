@@ -12,7 +12,13 @@
     //   callback - function to be called with retrieved data
     //   error - function to be called when an error occurs
     // data format:
-    //
+    //  object:
+    //    {
+    //      levels: [
+    //        { id: 1, name: "...", description: "..." },
+    //        { ... }
+    //      ]
+    //    }
     this.listLevels = function(callback, error) {
       $.get(levels_path)
         .done(callback)
@@ -25,7 +31,28 @@
     //  callback - function to be called with retrieved data
     //  error - function to be called when an error occurs
     // data format:
-    //
+    //  object:
+    //  {
+    //    level: {
+    //      characters: [
+    //        { id: 1, name: "..." },
+    //        { ... },
+    //        ...
+    //      ],
+    //      conversation: {
+    //        messages: [
+    //          { character_id: 1, content: "...", position: 1 },
+    //          { ... },
+    //          ...
+    //        ]
+    //      },
+    //      id: 3,
+    //      task: {
+    //        content: "...",
+    //        points: 4
+    //      }
+    //    }
+    //  }
     this.getLevel = function(id, callback, error) {
       $.get(level_path(id))
         .done(callback)
