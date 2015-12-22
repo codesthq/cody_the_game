@@ -1,4 +1,9 @@
 #level
-  %h1= @omg
-  %textarea#textarea
-  %button{data: { action: :validate } } VALIDATE
+  %h1= @level
+
+  #conversation
+    %button{data: { action: :start } } START
+
+  #challenge{style: 'display: none;' }
+    %textarea#submission
+    %button{data: { action: :validate } } VALIDATE

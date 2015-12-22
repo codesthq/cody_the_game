@@ -2,6 +2,6 @@ class LevelController < ApplicationController
   layout false
   
   def show
-    @omg = params[:level]
+    @level = params[:level]
   end
 end

@@ -8,7 +8,12 @@ $(function() {
     var self = this;
 
     this.start = function() {
-      self.load();
+      $("#conversation").hide();
+      $("#challenge").show();
+
+      self.editor = CodeMirror.fromTextArea(document.getElementById("submission"), {
+        lineNumbers: true
+      });
     };
 
     this.stop = function() {
@@ -17,14 +22,12 @@ $(function() {
     this.load = function() {
       $("#container").load(self.source, { level: self.name }, function() {
         self.listen();
-
-        var editor = CodeMirror.fromTextArea(document.getElementById("textarea"), {
-          lineNumbers: true
-        });
       });
     };
 
     this.validate = function() {
+      // self.editor.getValue();
+
       self.callback();
     };
 
@@ -69,7 +72,7 @@ $(function() {
 
       if (self.hash !== "") {
         self.currentLevel = self.hash.substring(self.hash.indexOf('#') + 1);
-        self.levels[self.currentLevel].start();
+        self.levels[self.currentLevel].load();
       }
 
       $("#game").on("click", "[data-action]", function(e){
@@ -85,25 +88,25 @@ $(function() {
     this.setupLevels = function() {
       self.levels.push(new GameLevel("A", self.source, function(){
         self.levels[0].stop();
-        self.levels[1].start();
+        self.levels[1].load();
         self.currentLevel = 1;
         document.location.hash = 1;
       }));
       self.levels.push(new GameLevel("B", self.source, function(){
         self.levels[1].stop();
-        self.levels[2].start();
+        self.levels[2].load();
         self.currentLevel = 2;
         document.location.hash = 2;
       }));
       self.levels.push(new GameLevel("C", self.source, function(){
         self.levels[2].stop();
-        self.levels[3].start();
+        self.levels[3].load();
         self.currentLevel = 3;
         document.location.hash = 3;
       }));
       self.levels.push(new GameLevel("D", self.source, function(){
         self.levels[3].stop();
-        self.levels[4].start();
+        self.levels[4].load();
         self.currentLevel = 4;
         document.location.hash = 4;
       }));
@@ -116,11 +119,11 @@ $(function() {
     // 
 
     this.new = function() {
-      self.levels[0].start();
+      self.levels[0].load();
     };
 
     this.continue = function() {
-      self.levels[self.currentLevel].start();
+      self.levels[self.currentLevel].load();
     };
   };
 
