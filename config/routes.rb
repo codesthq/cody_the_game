@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   end
 
   get "/game", to: "game#show"
-  post "/level", to: "level#show"
+  get "/level", to: "level#show"
 end

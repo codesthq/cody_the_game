@@ -8,6 +8,7 @@ puts "Levels loaded"
 puts "Load characters"
 characters = []
 10.times do |i|
+  characters << Character.find_or_create_by(name: "Wiewiór", level_id: levels[i].id)
   characters << Character.find_or_create_by(name: "Krzysiek #{i}", level_id: levels[i].id)
 end
 puts "Characteres loaded"
@@ -23,8 +24,8 @@ puts "Conversations loaded!"
 puts "Load messages"
 
 conversations.each_with_index do |conversations, id|
-  Message.find_or_create_by!(position: 1, content: "message #{id}", character_id: characters.first.id, conversation_id: conversations.id)
-  Message.find_or_create_by!(position: 2, content: "message #{id}", character_id: characters[id + 1].try(:id), conversation_id: conversations.id)
+  Message.find_or_create_by!(position: 1, content: "message type 1 #{id}", character_id: characters.first.id, conversation_id: conversations.id)
+  Message.find_or_create_by!(position: 2, content: "message type 2 #{id}", character_id: characters[id + 1].try(:id), conversation_id: conversations.id)
 end
 
 puts "Messages loaded!"

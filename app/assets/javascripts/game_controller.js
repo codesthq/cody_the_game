@@ -24,7 +24,9 @@ $(function() {
     };
 
     this.load = function() {
-      $("#container").load(self.source, { level: self.level.name }, function() {
+      $("#container").load(self.source, function() {
+        $("#title").html(self.level.name);
+        self.startConversation();
         self.listen();
       });
     };
@@ -42,6 +44,52 @@ $(function() {
         console.error("Failed to submit content!");
       });
     };
+
+    var showMessage = function(message) {
+      var $msg = $("#messages");
+      $msg.html(message.content);
+
+      return message.character_id;
+    }
+
+    var highlightCharacter = function(character_id, mainCharacter, opponentCharacter) {
+      if (character_id == mainCharacter.id) {
+        $('#main-character').css("background-color", "red");
+        $('#opponent-character').css("background-color", "transparent");
+      } else {
+        $('#main-character').css("background-color", "transparent");
+        $('#opponent-character').css("background-color", "red");
+      }
+    }
+
+    this.startConversation = function() {
+      apiClient.getLevel(self.level.id, function(data) {
+        self.level = data.level;
+
+        var mainCharacter = self.level.characters[0];
+        var opponentCharacter = self.level.characters[1];
+
+        $('#main-character').html(mainCharacter.name);
+        $('#opponent-character').html(opponentCharacter.name);
+
+        var currentMessage = 0;
+        var nextMessage = function() {
+          var message = self.level.conversation.messages[currentMessage];
+          currentMessage++;
+          return message;
+        }
+
+        highlightCharacter(showMessage(nextMessage()), mainCharacter, opponentCharacter);
+
+        $("#messages").click(function() {
+          var msg = nextMessage();
+          if (msg !== undefined) highlightCharacter(showMessage(msg), mainCharacter, opponentCharacter);
+        });
+
+      }, function(e) {
+        console.error("Failed to get level info!");
+      })
+    }
 
     this.next = function() {
       self.callback();

@@ -1,8 +1,13 @@
 #level
-  %h1= @level
+  %h1#title
 
   #conversation
-    %button{data: { action: :start } } START
+    #main-character
+    #messages-area
+      #messages
+    #opponent-character
+    .actions
+      %button{data: { action: :start } } START
 
   #challenge{style: 'display: none;' }
     %textarea#submission
