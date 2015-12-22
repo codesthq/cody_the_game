@@ -1,5 +1,6 @@
 class API::SubmissionsController < API::BaseController
   before_action :set_submission, only: :show
+  before_action :set_level, only: :show
 
   def show
     render json: @submission
@@ -7,6 +8,7 @@ class API::SubmissionsController < API::BaseController
 
   def create
     @submission = Submission.new submission_params
+    @submission.level = @level
 
     if @submission.save
       render json: @submission
@@ -16,6 +18,10 @@ class API::SubmissionsController < API::BaseController
   end
 
   private
+
+  def set_level
+    @level = Level.find params[:level_id]
+  end
 
   def set_submission
     @submission = Submission.find params[:id]

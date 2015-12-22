@@ -1,3 +1,3 @@
 class SubmissionSerializer < ActiveModel::Serializer
-  attributes :id, :status, :response
+  attributes :id, :level_id, :status, :response
 end
