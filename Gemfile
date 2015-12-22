@@ -11,9 +11,14 @@ gem 'snapsvg-rails'
 gem 'haml'
 gem 'codemirror-rails'
 gem 'acts_as_list'
+gem 'docker-api', '~> 1.17'
+gem 'thor', '~> 0.19'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
 end
 
 group :development do

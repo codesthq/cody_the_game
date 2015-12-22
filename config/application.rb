@@ -8,6 +8,8 @@ module CodyOnRails
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
 
+    config.autoload_paths += ["#{Rails.root}/tasks", "#{Rails.root}/services"]
+
     config.generators do |g|
       g.test_framework nil
     end

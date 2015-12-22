@@ -47,9 +47,18 @@ GEM
     byebug (8.2.1)
     codemirror-rails (5.6)
       railties (>= 3.0, < 5)
+    coderay (1.1.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    docker-api (1.24.1)
+      excon (>= 0.38.0)
+      json
+    dotenv (2.0.2)
+    dotenv-rails (2.0.2)
+      dotenv (= 2.0.2)
+      railties (~> 4.0)
     erubis (2.7.0)
+    excon (0.45.4)
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
@@ -65,12 +74,19 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
+    pry (0.10.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (2.15.3)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -107,6 +123,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    slop (3.6.0)
     snapsvg-rails (0.4.1)
       railties (>= 3)
     spring (1.6.0)
@@ -139,14 +156,19 @@ DEPENDENCIES
   acts_as_list
   byebug
   codemirror-rails
+  docker-api (~> 1.17)
+  dotenv-rails
   haml
   jquery-rails
   pg
+  pry
+  pry-rails
   puma
   rails (= 4.2.5)
   sass-rails (~> 5.0)
   snapsvg-rails
   spring
+  thor (~> 0.19)
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
 

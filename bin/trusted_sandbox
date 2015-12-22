@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require_relative '../config/boot'
+require_relative '../lib/trusted_sandbox/cli'
+TrustedSandbox::Cli.start(ARGV)
