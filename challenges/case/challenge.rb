@@ -1,10 +1,10 @@
-foo = MyClass.new
+# Write such a code that allows to use ~:foo syntax in 'case' statement like this:
 
-case 123
-when foo
-  puts "good"
+case any_object
+when ~:foo
+  # any_object responds to :foo method
+when ~:bar
+  # any_object responds to :bar method
 else
-  puts "else"
+  # any_object does not respond to :foo or :bar methods
 end
-
-# Write class MyClass in such a way, that this code returns "good"
