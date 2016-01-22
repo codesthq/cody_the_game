@@ -1,6 +1,7 @@
 # Challenge: write a method 'change_object'
 
-# Your task is to implement it in such a way that following code:
+# Your task is to implement a method 'change_object' in such a way that in following code:
+#
 # object = Object.new
 # change_object(object)
 #
@@ -8,8 +9,9 @@
 #   o.size == 0
 # end
 #
-# puts empty?(o)
-# would print 'Hello World!' on the screen
+# empty?(o)
+#
+# calling empty?(o) would return 'Hello World!' string.
 
 module Challenge
   class OperatorChange < TaskRunner::BaseTask
