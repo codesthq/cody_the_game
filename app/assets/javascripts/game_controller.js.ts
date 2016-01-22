@@ -35,7 +35,6 @@ class GameController {
         this.initLevelController(level);
       }
     });
-    // this.loadIntro();
   }
 
   loadLevels(callback?: () => any) {

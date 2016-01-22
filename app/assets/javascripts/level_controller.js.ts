@@ -11,6 +11,7 @@ class LevelController {
   buttons:      any = {};
   messages:     { [character_id: number] : Array<string> } = {};
   editor:       CodeMirror.EditorFromTextArea;
+  submission:   any = {};
 
   constructor(game: GameController, position: number) {
     this.game     = game;
@@ -28,10 +29,39 @@ class LevelController {
 
     this.buttons.validate = this.game.views.hollow.select('.button.validate');
     this.buttons.validate.click(() => {
-      // submission
-      this.exitLevel(() => {
-        this.changeLevel(this.position, this.enterLevel.bind(this));
-      });
+      this.handleSubmissionForm();
+    });
+  }
+
+  handleSubmissionForm() {
+    let content = this.editor.getDoc().getValue();
+
+    this.game.apiClient.submitCode(this.level.id, content, (data) => {
+      this.submission = data.submission;
+
+      setTimeout(() => { this.checkSubmissionStatus() }, 500);
+
+    }, () => {
+      console.log("Can't submit content of submission");
+    });
+  }
+
+  checkSubmissionStatus() {
+    this.game.apiClient.getSubmission(this.submission.id, (data) => {
+      this.submission = data.submission;
+      let status = this.submission.status;
+
+      if (status === "pending") {
+        setTimeout(() => { this.checkSubmissionStatus() }, 500);
+      } else if (status === "failed") {
+        alert("FAILED!");
+      } else if (status === "succeed") {
+        this.exitLevel(() => {
+          this.changeLevel(this.position, this.enterLevel.bind(this));
+        });
+      }
+    }, () => {
+      console.log("Can't check status of submission")
     });
   }
 
@@ -51,8 +81,6 @@ class LevelController {
         }
         this.messages[message.character_id].push(message.content);
       }
-
-      console.log(this.messages);
     }, () => {
       console.error("Can't load conversations");
     });
