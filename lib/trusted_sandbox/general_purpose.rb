@@ -20,7 +20,7 @@ module TrustedSandbox
     end
 
     def run
-      eval @code
+      eval @code, TOPLEVEL_BINDING
     end
   end
 end
