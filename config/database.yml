@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: CodyOnRails_production
-  username: CodyOnRails
+  username: codyonrails
   password: <%= ENV['CODYONRAILS_DATABASE_PASSWORD'] %>
