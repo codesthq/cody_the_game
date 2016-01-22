@@ -56,12 +56,14 @@ ActiveRecord::Schema.define(version: 20160122123444) do
   end
 
   create_table "submissions", force: :cascade do |t|
-    t.text     "content",                null: false
-    t.integer  "status",     default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.text     "content",                     null: false
+    t.integer  "status",          default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "response"
-    t.integer  "level_id",               null: false
+    t.integer  "level_id",                    null: false
+    t.string   "error_messages"
+    t.integer  "game_session_id",             null: false
   end
 
   create_table "tasks", force: :cascade do |t|

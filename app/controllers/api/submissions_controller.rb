@@ -7,6 +7,7 @@ class API::SubmissionsController < API::BaseController
 
   def create
     @submission = Submission.new submission_params
+    @submission.game_session = current_session
 
     if @submission.save
       SubmissionQueueJob.perform_later(@submission.id)

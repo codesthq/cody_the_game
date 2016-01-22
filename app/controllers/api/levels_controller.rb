@@ -11,6 +11,10 @@ class API::LevelsController < API::BaseController
     render json: @level, status: :ok
   end
 
+  def current_user_level
+    render json: { current_level_id: current_session.max_level }, status: :ok
+  end
+
   private
 
   def authorize_level
