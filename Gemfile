@@ -13,6 +13,7 @@ gem 'codemirror-rails'
 gem 'acts_as_list'
 gem 'docker-api', '~> 1.17'
 gem 'thor', '~> 0.19'
+gem 'typescript-rails'
 
 group :development, :test do
   gem 'byebug'

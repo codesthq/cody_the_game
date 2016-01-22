@@ -17,6 +17,7 @@
 //= require game_controller
 //= require codemirror
 //= require codemirror/modes/ruby
+//= require world
 
 $(function(){
   $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
