@@ -14,6 +14,8 @@ gem 'acts_as_list'
 gem 'docker-api', '~> 1.17'
 gem 'thor', '~> 0.19'
 gem 'typescript-rails'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil
 
 group :development, :test do
   gem 'byebug'

@@ -9,6 +9,7 @@ class API::SubmissionsController < API::BaseController
     @submission = Submission.new submission_params
 
     if @submission.save
+      SubmissionQueueJob.perform_later(@submission.id)
       render json: @submission
     else
       render json: { errors: @submission.errors }, status: :unprocessable_entity
