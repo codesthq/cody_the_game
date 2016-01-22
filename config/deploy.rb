@@ -7,6 +7,7 @@ set :default_env, { path: "~/.rbenv/shims:~/.rbenv/bin:$PATH" }
 
 set :linked_files, fetch(:linked_files, []) + %w[
   config/database.yml
+  config/trusted_sandbox.yml
   config/secrets.yml
   .env
 ]
