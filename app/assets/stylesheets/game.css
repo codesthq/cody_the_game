@@ -10,6 +10,7 @@
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
 *
+*= require _fonts
 *= require_self
 *= require codemirror
 */
@@ -17,7 +18,12 @@
 body, html { margin: 0; padding: 0; height: 100%; }
 
 body {
- background-color: #91AC08
+   background-color: #91AC08;
+   font-family: 'Bebas Neue', sans-serif;
+}
+
+text, tspan {
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 svg {
