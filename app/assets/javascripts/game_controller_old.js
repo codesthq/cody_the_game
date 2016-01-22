@@ -127,7 +127,7 @@ $(function() {
     };
   };
 
-  var GameController = function() {
+  var GameControllerOld = function() {
     this.levels = [];
     this.hash = window.location.hash;
     this.currentLevel = 0;
@@ -201,5 +201,5 @@ $(function() {
     };
   };
 
-  window.game_controller = (new GameController()).init("#container");
+  window.game_controller = (new GameControllerOld()).init("#container");
 });

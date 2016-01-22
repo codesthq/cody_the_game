@@ -14,16 +14,17 @@
 //= require jquery_ujs
 //= require snapsvg
 //= require services/api_client
-//= require game_controller
 //= require codemirror
 //= require codemirror/modes/ruby
-//= require world
+//= require game_controller
 
 $(function(){
-  $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
-    var destination = $(this).data("replace");
-    $(destination).replaceWith(data);
-  });
+  var game = new GameController();
+  game.loadIntro();
+  // $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
+  //   var destination = $(this).data("replace");
+  //   $(destination).replaceWith(data);
+  // });
 
   // $(document.body).on("ajax:success", '[data-append]', function(e, data, status, xhr){
   //   var destination = $(this).data("append");
