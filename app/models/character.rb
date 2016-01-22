@@ -1,6 +1,6 @@
 class Character < ActiveRecord::Base
   belongs_to :level
-  belongs_to :message
+  has_many :messages
 
   validates :name, presence: true
 end
