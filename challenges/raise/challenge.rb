@@ -1,13 +1,10 @@
 # After executing your code we will open class Foo and add method
 
-def method_name
+def our_method
   raise "I won"
 end
 
-# write class in a way, that method_name will not raise an exception
+# write class in a way, that our_method will not raise an exception
 
 class Foo
-  #solution
-  # def raise(argument)
-  # end
 end

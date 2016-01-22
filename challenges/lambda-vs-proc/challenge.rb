@@ -10,9 +10,6 @@ def greeter
   puts "Hello"
 
   finder = Proc.new { array.each { |element| return element if element.length == 2} }
-  # simplest solution
-  # finder = lambda { array.each { |element| return element if element.length == 2} }
-
 
   response_formatter(finder)
 end
