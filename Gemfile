@@ -21,10 +21,16 @@ group :development, :test do
   gem 'byebug'
   gem 'pry'
   gem 'pry-rails'
-  gem 'dotenv-rails', :require => 'dotenv/rails-now'
+  gem 'dotenv-rails', require: 'dotenv/rails-now'
 end
 
 group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma', require: false
+  gem 'hipchat', require: false
 end
