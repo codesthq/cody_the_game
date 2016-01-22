@@ -1,4 +1,5 @@
 /// <reference path='./snapsvg.d.ts'/>
+/// <reference path='./codemirror.d.ts'/>
 /// <reference path='./level.js.ts'/>
 /// <reference path='./intro.js.ts'/>
 
