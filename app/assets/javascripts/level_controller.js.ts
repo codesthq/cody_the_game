@@ -12,11 +12,10 @@ class LevelController {
   constructor(game: GameController, position: number) {
     this.game        = game;
     this.position    = position;
-    this.level       = this.game.levels[this.position];
   }
 
   init() {
-    this.loadConversation();
+    this.loadLevelData();
 
     this.sqrl = this.game.views.hollow.select('.sqrl');
     this.buttons.play = this.game.views.hollow.select('.button.play');
@@ -51,9 +50,8 @@ class LevelController {
       }
 
       console.log(this.messages);
-
     }, () => {
-      console.log("Can't load conversations");
+      console.error("Can't load conversations");
     });
   }
 
@@ -84,7 +82,14 @@ class LevelController {
     }, mina.easeinout);
 
     this.position++;
+    this.loadLevelData();
   };
+
+  loadLevelData() {
+    window.location.hash = String(this.position);
+    this.level = this.game.levels[this.position];
+    this.loadConversation();
+  }
 
   enterLevel() {
     this.hide(this.game.views.world);
