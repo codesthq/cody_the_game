@@ -1,24 +1,24 @@
 class LevelController {
-  game:        GameController;
-  step:        number;
-  currentLvl:  number;
-  t:           any;
-  sqrl:        any;
-  bulbs:       any;
-  buttons:     any;
+  game:         GameController;
+  step:         number = 900;
+  position:     number;
+  level:        any;
+  t:            any;
+  sqrl:         any;
+  bulbs:        Array<number> = [];
+  buttons:      any = {};
+  messages:     { [character_id: number] : Array<string> } = {};
 
-  constructor(game: GameController, currentLevel: number) {
+  constructor(game: GameController, position: number) {
     this.game        = game;
-    this.currentLvl  = currentLevel;
-    this.step        = 900;
-    this.bulbs       = {};
-    this.buttons     = {};
+    this.position    = position;
+    this.level       = this.game.levels[this.position];
   }
 
   init() {
+    this.loadConversation();
+
     this.sqrl = this.game.views.hollow.select('.sqrl');
-    this.bulbs[1] = this.game.views.hollow.select('.bulb1');
-    this.bulbs[2] = this.game.views.hollow.select('.bulb2');
     this.buttons.play = this.game.views.hollow.select('.button.play');
     this.buttons.play.click(() => {
       this.play();
@@ -28,8 +28,32 @@ class LevelController {
     this.buttons.validate.click(() => {
       // submission
       this.exitLevel(() => {
-        this.changeLevel(this.currentLvl, this.enterLevel.bind(this));
+        this.changeLevel(this.position, this.enterLevel.bind(this));
       });
+    });
+  }
+
+  loadConversation() {
+    this.game.apiClient.getLevel(this.level.id, (data) => {
+      let level = data.level;
+      let characters = level.characters;
+      let conversation = level.conversation;
+
+      for(let character of characters) {
+        this.bulbs.push(character.id);
+      }
+
+      for(let message of conversation.messages) {
+        if (!this.messages[message.character_id]) {
+          this.messages[message.character_id] = new Array();
+        }
+        this.messages[message.character_id].push(message.content);
+      }
+
+      console.log(this.messages);
+
+    }, () => {
+      console.log("Can't load conversations");
     });
   }
 
@@ -59,7 +83,7 @@ class LevelController {
       this.game.layers.layer2.stop();
     }, mina.easeinout);
 
-    this.currentLvl++;
+    this.position++;
   };
 
   enterLevel() {
@@ -67,8 +91,9 @@ class LevelController {
     this.show(this.game.views.hollow);
 
     this.sqrl.transform('t-500,0');
-    this.bulbs[1].transform('t0,-1000').select('text').attr('opacity', 0);
-    this.bulbs[2].transform('t0,1000').select('text').attr('opacity', 0);
+    this.showBulbs();
+    this.startConversation();
+
     this.hide(this.buttons.play);
     this.hide(this.buttons.validate);
 
@@ -85,8 +110,7 @@ class LevelController {
   }
 
   play() {
-    this.bulbs[1].animate({ transform: 't0,-1000' }, 200);
-    this.bulbs[2].animate({ transform: 't0,1000' }, 200);
+    this.hideBulbs();
 
     this.hideAndAnimate(this.buttons.play);
     setTimeout( () => { this.showAndAnimate(this.buttons.validate); }, 600);
@@ -98,7 +122,8 @@ class LevelController {
     }, 300, mina.easein);
 
     for (let i in this.bulbs) {
-      this.bulbs[i].animate({
+      let bulb:any = this.getBulb(i);
+      bulb.animate({
         transform: 't0,0'
       }, 400, function () {
         this.select('text').animate({ opacity: 1 }, 400);
@@ -122,5 +147,38 @@ class LevelController {
 
   show(element: any) {
     element.attr({ visibility: 'visible', opacity: 1 });
+  }
+
+  showBulbs() {
+    for(let i in this.bulbs) {
+      let bulb:any = this.getBulb(i);
+      bulb.transform('t0,-1000').select('text').attr('opacity', 0);
+    }
+  }
+
+  hideBulbs() {
+    for(let i in this.bulbs) {
+      let bulb:any = this.getBulb(i);
+      bulb.transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
+    }
+  }
+
+  getBulb(character_id: number) {
+    return this.game.views.hollow.select('#bulb' + character_id);
+  }
+
+  startConversation() {
+    for(let i in this.bulbs) {
+      let bulb:any = this.getBulb(i);
+      let character_id = this.bulbs[i];
+      let message = this.getNextMessageForCharacter(character_id);
+      if (message) {
+        bulb.select("text").attr({text: message});
+      }
+    }
+  }
+
+  getNextMessageForCharacter(character_id: number) {
+    return this.messages[character_id].pop();
   }
 };

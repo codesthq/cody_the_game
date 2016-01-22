@@ -869,18 +869,17 @@
 			<polyline fill-rule="evenodd" clip-rule="evenodd" fill="#F0EDE4" points="270.3,679.2 267.3,694.5 257.4,693.9 257.7,682.5 		"/>
 		</g>
 
-		<g class="bulb2">
+		<g id="bulb0">
 			<polygon fill="#F2EDE3" points="427,710.3 468.8,646.2 380.7,600.2 357.7,546 408.7,469.5 526.9,412.1 888.9,444 1124.5,401
 				1214.9,475.9 1230.9,571.5 1176.9,659.2 986.9,694.2 778.9,659.2 640.9,672.5 	"/>
-
-			<text transform="matrix(1 0 0 1 534.1812 489.5971)"><tspan x="0" y="0" font-family="'LeagueGothic-Regular'" font-size="38px">Że co? Wybacz, nie dosłyszałem. Czy mógłbyś </tspan><tspan x="-49.4" y="45.6" font-family="'LeagueGothic-Regular'" font-size="38px">powtórzyć? Chyba słyszałem ciche pierdnięcie… albo </tspan><tspan x="-58.2" y="91.2" font-family="'LeagueGothic-Regular'" font-size="38px">była twój gasnący we mgle buraczany pomysł, by mnie </tspan><tspan x="189.5" y="136.8" font-family="'LeagueGothic-Regular'" font-size="38px">zawstydzić</tspan></text>
+			<text transform="matrix(1 0 0 1 534.1812 489.5971)"></text>
 		</g>
 
-		<g class="bulb1">
+		<g id="bulb1">
 			<polygon fill="#F2EDE3" points="1341.3,167.4 1281.3,146.3 1254.4,76.1 1125.5,38.4 945.6,72.7 741.7,-3.6 492.9,42.3 325.1,160.1
 				358,325.1 713.8,374.7 1131.5,348.4 1208.8,186.2 	"/>
 
-			<text transform="matrix(1 0 0 1 509.2247 145.5366)"><tspan x="0" y="0" font-family="'LeagueGothic-Regular'" font-size="38px">Widzisz te kocie ruchy? To jest coś czego nigdy nie </tspan><tspan x="-29.5" y="45.6" font-family="'LeagueGothic-Regular'" font-size="38px">przyswoisz. Więc daj sobie spokój, wybierz jakiś prosty </tspan><tspan x="-40.3" y="91.2" font-family="'LeagueGothic-Regular'" font-size="38px">zawód, który udowodni przewagę czynności manualnych </tspan><tspan x="1.5" y="136.8" font-family="'LeagueGothic-Regular'" font-size="38px">nad intelektem i wejdź w te tryby na sto procent.</tspan></text>
+			<text transform="matrix(1 0 0 1 509.2247 145.5366)"></text>
 		</g>
 
 

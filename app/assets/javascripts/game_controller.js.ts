@@ -1,3 +1,4 @@
+/// <reference path='./jquery.d.ts'/>
 /// <reference path='./snapsvg.d.ts'/>
 /// <reference path='./codemirror.d.ts'/>
 /// <reference path='./level_controller.js.ts'/>
@@ -12,8 +13,7 @@ class GameController {
   intro:       Intro;
   asset_paths: any;
   levels:      Array<any>
-
-  private apiClient: APIClient;
+  apiClient: APIClient;
 
   constructor(asset_paths : any) {
     this.layers      = {}
@@ -40,7 +40,7 @@ class GameController {
 
   loadLevels(callback?: () => any) {
     this.apiClient.listLevels((data) => {
-      this.levels = data;
+      this.levels = data.levels;
       if (callback) {
         callback();
       }
