@@ -29,10 +29,10 @@ class GameController {
 
       if (level == 0) {
         this.loadIntro(() => {
-          this.initLevelController();
+          this.initLevelController(level);
         });
       } else {
-        this.initLevelController();
+        this.initLevelController(level);
       }
     });
     // this.loadIntro();
@@ -53,7 +53,7 @@ class GameController {
     return this.readLevelFromHash() || 0;
   }
 
-  readLevelFromHash() {
+  readLevelFromHash(): number {
     let hash = window.location.hash;
 
     if (hash !== "") {
@@ -73,7 +73,7 @@ class GameController {
     });
   }
 
-  initLevelController() {
+  initLevelController(level : number) {
     Snap.load(this.asset_paths.world, (f : any) => {
       this.snap.append(f);
 
@@ -90,7 +90,7 @@ class GameController {
       this.views.hollow = this.snap.select('svg#hollow');
       this.views.hollow.attr({ visibility: 'hidden', opacity: 0 });
 
-      this.level = new LevelController(this);
+      this.level = new LevelController(this, level);
       this.level.init();
 
       setTimeout(() => { this.level.enterLevel() }, 500);

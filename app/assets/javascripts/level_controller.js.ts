@@ -7,9 +7,9 @@ class LevelController {
   bulbs:       any;
   buttons:     any;
 
-  constructor(game: GameController) {
+  constructor(game: GameController, currentLevel: number) {
     this.game        = game;
-    this.currentLvl  = 1;
+    this.currentLvl  = currentLevel;
     this.step        = 900;
     this.bulbs       = {};
     this.buttons     = {};
