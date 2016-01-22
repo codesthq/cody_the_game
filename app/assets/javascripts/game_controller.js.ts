@@ -1,57 +1,99 @@
 /// <reference path='./snapsvg.d.ts'/>
 /// <reference path='./codemirror.d.ts'/>
-/// <reference path='./level.js.ts'/>
+/// <reference path='./level_controller.js.ts'/>
 /// <reference path='./intro.js.ts'/>
+/// <reference path='./services/api_client.js.ts'/>
 
 class GameController {
-  s:           any;
+  snap:        any;
   views:       any;
   layers:      any;
-  level:       Level;
+  level:       LevelController;
   intro:       Intro;
   asset_paths: any;
+  levels:      Array<any>
+
+  private apiClient: APIClient;
 
   constructor(asset_paths : any) {
     this.layers      = {}
     this.views       = {};
-    this.s           = Snap('#game-wrap');
+    this.snap        = Snap('#game-wrap');
     this.asset_paths = asset_paths;
+    this.apiClient   = new APIClient("/api");
   }
 
-  loadIntro() {
+  start() {
+    this.loadLevels(() => {
+      let level = this.getCurrentLevel();
+
+      if (level == 0) {
+        this.loadIntro(() => {
+          this.initLevelController();
+        });
+      } else {
+        this.initLevelController();
+      }
+    });
+    // this.loadIntro();
+  }
+
+  loadLevels(callback?: () => any) {
+    this.apiClient.listLevels((data) => {
+      this.levels = data;
+      if (callback) {
+        callback();
+      }
+    }, () => {
+      console.error("Could not load levels");
+    })
+  }
+
+  getCurrentLevel() {
+    return this.readLevelFromHash() || 0;
+  }
+
+  readLevelFromHash() {
+    let hash = window.location.hash;
+
+    if (hash !== "") {
+      let levelNum = parseInt(hash.substring(hash.indexOf('#') + 1))
+      return isNaN(levelNum) ? undefined : levelNum;
+    }
+  }
+
+  loadIntro(callback: () => any) {
     Snap.load(this.asset_paths.intro, (f : any) => {
-      this.s.append(f);
+      this.snap.append(f);
 
-      this.views.intro = this.s.select('svg#intro');
+      this.views.intro = this.snap.select('svg#intro');
 
-      this.intro = new Intro(this);
+      this.intro = new Intro(this, callback);
       this.intro.init();
     });
   }
 
-  loadGame(callback: () => any) {
+  initLevelController() {
     Snap.load(this.asset_paths.world, (f : any) => {
-      this.s.append(f);
+      this.snap.append(f);
 
-      this.views.world = this.s.select('svg#world');
+      this.views.world = this.snap.select('svg#world');
 
-      this.layers.tree = this.s.select('#layer1');
-      this.layers.layer1 = this.s.select('#layer2');
-      this.layers.layer2 = this.s.select('#layer3');
+      this.layers.tree = this.snap.select('#layer1');
+      this.layers.layer1 = this.snap.select('#layer2');
+      this.layers.layer2 = this.snap.select('#layer3');
     });
 
     Snap.load(this.asset_paths.hollow, (f : any) => {
-      this.s.append(f);
+      this.snap.append(f);
 
-      this.views.hollow = this.s.select('svg#hollow');
+      this.views.hollow = this.snap.select('svg#hollow');
       this.views.hollow.attr({ visibility: 'hidden', opacity: 0 });
 
-      this.level = new Level(this);
+      this.level = new LevelController(this);
       this.level.init();
 
-      if (callback) {
-        callback();
-      }
+      setTimeout(() => { this.level.enterLevel() }, 500);
     });
   };
 }

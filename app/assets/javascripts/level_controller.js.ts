@@ -1,4 +1,4 @@
-class Level {
+class LevelController {
   game:        GameController;
   step:        number;
   currentLvl:  number;
@@ -26,6 +26,7 @@ class Level {
 
     this.buttons.validate = this.game.views.hollow.select('.button.validate');
     this.buttons.validate.click(() => {
+      // submission
       this.exitLevel(() => {
         this.changeLevel(this.currentLvl, this.enterLevel.bind(this));
       });

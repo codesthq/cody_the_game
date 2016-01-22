@@ -1,13 +1,15 @@
 class Intro {
-  game:    GameController;
-  clouds:  any;
-  eyes:    any;
-  t:       any;
+  game:     GameController;
+  clouds:   any;
+  eyes:     any;
+  t:        any;
+  callback: () => any;
 
-  constructor(game: GameController) {
-    this.game   = game;
-    this.clouds = this.game.s.select('g#clouds');
-    this.eyes   = this.game.s.select('g#eyes-closed');
+  constructor(game: GameController, callback: () => any) {
+    this.game     = game;
+    this.clouds   = this.game.snap.select('g#clouds');
+    this.eyes     = this.game.snap.select('g#eyes-closed');
+    this.callback = callback;
 
     this.clouds.after(this.clouds.use().attr({
       x: document.getElementById('game-wrap').getBoundingClientRect().width
@@ -15,17 +17,15 @@ class Intro {
   }
 
   play() {
-    this.game.s.select('svg#intro').remove();
+    this.game.snap.select('svg#intro').remove();
 
-    this.game.loadGame(() => {
-      setTimeout( () => { this.game.level.enterLevel(); }, 500 )
-    });
+    this.callback();
   }
 
   init() {
     this.startAmbientAnimation();
 
-    this.game.s.select('g.button.play').click(() => { this.play(); });
+    this.game.snap.select('g.button.play').click(() => { this.play(); });
   }
 
   startAmbientAnimation() {
@@ -36,7 +36,7 @@ class Intro {
   cloudsAnimationLoop() {
     this.clouds.transform('t0,0');
     this.clouds.animate({
-      transform: 't-' + this.game.s.node.offsetWidth + ',0'
+      transform: 't-' + this.game.snap.node.offsetWidth + ',0'
     }, 90000, () => { this.cloudsAnimationLoop(); });
   }
 
