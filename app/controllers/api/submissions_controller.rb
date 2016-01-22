@@ -10,7 +10,7 @@ class API::SubmissionsController < API::BaseController
     @submission.game_session = current_session
 
     if @submission.save
-      SubmissionQueueJob.perform_later(@submission.id)
+      enqueue_submission_verification @submission
       render json: @submission
     else
       render json: { errors: @submission.errors }, status: :unprocessable_entity
@@ -18,6 +18,10 @@ class API::SubmissionsController < API::BaseController
   end
 
   private
+
+  def enqueue_submission_verification(submission)
+    SubmissionVerifierJob.perform_later submission.id
+  end
 
   def set_submission
     @submission = Submission.find params[:id]

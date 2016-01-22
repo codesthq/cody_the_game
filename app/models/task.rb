@@ -3,4 +3,5 @@ class Task < ActiveRecord::Base
 
   validates :content, presence: true
   validates :points, presence: true
+  validates :test_class, presence: true
 end
