@@ -7,7 +7,7 @@ def create_character(params:, level:)
 end
 
 def create_task(params:, level:)
-  Task.create! params.merge! level_id: level
+  Task.create! params.merge! level_id: level, test_class: "Challenge::HelloWorld"
 end
 
 def create_conversation(messages:, characters:, level:)
