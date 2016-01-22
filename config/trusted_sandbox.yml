@@ -1,3 +1,6 @@
+default: &default
+  docker_image_name:            ruby-sandbox-230
+
 development:
   # # Optional login information for Docker Hub
   # docker_login:
@@ -8,7 +11,7 @@ development:
 
   # # For a linux host these can typically remain commented
   # docker_image_name:            vaharoni/trusted_sandbox:ruby-2.1.2.v2
-  docker_image_name:            ruby-sandbox-230
+  <<: *default
 
   cpu_shares:                   1
 
@@ -42,3 +45,6 @@ development:
   #  pool_timeout:                 3
   #  pool_retries:                 5
   #  pool_delay:                   0.5
+
+test:
+  <<: *default
