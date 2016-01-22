@@ -1,6 +1,5 @@
 class Submission < ActiveRecord::Base
   belongs_to :level
-  belongs_to :task
 
   enum status: [:pending, :failed, :succeed]
 
