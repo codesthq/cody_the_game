@@ -26,6 +26,14 @@ class APIClient{
       .fail(error);
   }
 
+  getCurrentUserLevel(callback: SuccessCallback, error: ErrorCallback) {
+    var path = [this.ENDPOINT, "levels", "current_user_level"].join("/");
+
+    $.get(path)
+        .done(callback)
+        .fail(error);
+  }
+
   submitCode(level_id: number, content: string, callback: SuccessCallback, error: ErrorCallback) {
     var path = [this.ENDPOINT, "submissions"].join("/");
 
