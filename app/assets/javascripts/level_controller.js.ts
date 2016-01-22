@@ -1,3 +1,5 @@
+/// <reference path='./codemirror.d.ts'/>
+
 class LevelController {
   game:         GameController;
   step:         number = 900;
@@ -8,10 +10,11 @@ class LevelController {
   bulbs:        Array<number> = [];
   buttons:      any = {};
   messages:     { [character_id: number] : Array<string> } = {};
+  editor:       CodeMirror.EditorFromTextArea;
 
   constructor(game: GameController, position: number) {
-    this.game        = game;
-    this.position    = position;
+    this.game     = game;
+    this.position = position;
   }
 
   init() {
@@ -56,8 +59,10 @@ class LevelController {
   }
 
   changeLevel(level : number, callback : () => any) {
+    this.hideSubmissionForm();
+
     var _timeout  = 3000;
-    var _move     = this.step * level;
+    var _move     = this.step * (level + 1);
 
     this.game.layers.tree.animate({
       transform: 't0,'+ _move
@@ -119,6 +124,8 @@ class LevelController {
 
     this.hideAndAnimate(this.buttons.play);
     setTimeout( () => { this.showAndAnimate(this.buttons.validate); }, 600);
+
+    this.showSubmissionForm();
   }
 
   animationEntering() {
@@ -185,5 +192,28 @@ class LevelController {
 
   getNextMessageForCharacter(character_id: number) {
     return this.messages[character_id].pop();
+  }
+
+  private showSubmissionForm() {
+    $("#submission").show();
+    this.addEditor();
+  }
+
+  private hideSubmissionForm() {
+    $("#submission").hide();
+    this.removeEditor();
+  }
+
+  private removeEditor() {
+    this.editor.getTextArea().value = "";
+    this.editor.toTextArea();
+
+    this.editor = null;
+  }
+
+  private addEditor() {
+    this.editor = CodeMirror.fromTextArea(<HTMLTextAreaElement>document.getElementById("content"), {
+      lineNumbers: true
+    });
   }
 };
