@@ -123,9 +123,12 @@ class LevelController {
     this.hideBulbs();
 
     this.hideAndAnimate(this.buttons.play);
-    setTimeout( () => { this.showAndAnimate(this.buttons.validate); }, 600);
+    setTimeout( () => {
+      this.showSubmissionForm();
+      this.showAndAnimate(this.buttons.validate);
+    }, 600);
 
-    this.showSubmissionForm();
+
   }
 
   animationEntering() {

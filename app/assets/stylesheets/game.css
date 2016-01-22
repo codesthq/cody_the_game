@@ -52,6 +52,17 @@ svg {
   cursor: pointer;
 }
 
+#submission {
+  display: none;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  margin: 0 0 0 -20%;
+  z-index: 10;
+  width: 40%;
+  height: 300px;
+}
+
 #game-wrap {
   background-color: #a9d8de;
   position: relative;
