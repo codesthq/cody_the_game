@@ -19,8 +19,6 @@
 //= require game_controller
 
 $(function(){
-  var game = new GameController();
-  game.loadIntro();
   // $(document.body).on("ajax:success", "[data-replace]", function(e, data, status, xhr){
   //   var destination = $(this).data("replace");
   //   $(destination).replaceWith(data);

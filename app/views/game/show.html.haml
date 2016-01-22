@@ -3,3 +3,13 @@
 
 /  %button{data: { action: :new } } NEW
 /  %button{data: { action: :continue } } CONTINUE
+
+:javascript
+  var assets = {
+    intro: "#{asset_path('intro.svg')}",
+    world: "#{asset_path('world.svg')}",
+    hollow: "#{asset_path('hollow.svg')}"
+  }
+
+  var game = new GameController(assets);
+  game.loadIntro();

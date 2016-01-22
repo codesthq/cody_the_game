@@ -3,20 +3,22 @@
 /// <reference path='./intro.js.ts'/>
 
 class GameController {
-  s:      any;
-  views:  any;
-  layers: any;
-  level:  Level;
-  intro:  Intro;
+  s:           any;
+  views:       any;
+  layers:      any;
+  level:       Level;
+  intro:       Intro;
+  asset_paths: any;
 
-  constructor() {
-    this.layers  = {}
-    this.views   = {};
-    this.s       = Snap('#game-wrap');
+  constructor(asset_paths : any) {
+    this.layers      = {}
+    this.views       = {};
+    this.s           = Snap('#game-wrap');
+    this.asset_paths = asset_paths;
   }
 
   loadIntro() {
-    Snap.load('/assets/intro.svg', (f : any) => {
+    Snap.load(this.asset_paths.intro, (f : any) => {
       this.s.append(f);
 
       this.views.intro = this.s.select('svg#intro');
@@ -27,7 +29,7 @@ class GameController {
   }
 
   loadGame(callback: () => any) {
-    Snap.load('/assets/world.svg', (f : any) => {
+    Snap.load(this.asset_paths.world, (f : any) => {
       this.s.append(f);
 
       this.views.world = this.s.select('svg#world');
@@ -37,7 +39,7 @@ class GameController {
       this.layers.layer2 = this.s.select('#layer3');
     });
 
-    Snap.load('/assets/hollow.svg', (f : any) => {
+    Snap.load(this.asset_paths.hollow, (f : any) => {
       this.s.append(f);
 
       this.views.hollow = this.s.select('svg#hollow');
