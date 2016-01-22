@@ -32,5 +32,6 @@ group :development do
   gem 'capistrano-rbenv', require: false
   gem 'capistrano-bundler', require: false
   gem 'capistrano3-puma', require: false
+  gem 'capistrano-sidekiq', '0.5.3', require: false
   gem 'hipchat', require: false
 end

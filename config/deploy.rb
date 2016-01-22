@@ -13,7 +13,6 @@ set :linked_files, fetch(:linked_files, []) + %w[
 set :linked_dirs, fetch(:linked_dirs, []) + %w[
   log
   tmp
-  public
 ]
 
 set :sockets_path, -> { shared_path.join('tmp/sockets/') }
@@ -46,7 +45,7 @@ set :bundle_flags, '--deployment'
 # HipChat
 # ================================================================
 set :hipchat_token, 'ef27025b8eeb2064777acddf8a8c34'
-set :hipchat_room_name, 'CodyOnRails Development'
+set :hipchat_room_name, 'DevDay'
 set :hipchat_announce, false
 set :hipchat_color, 'green'
 set :hipchat_failed_color, 'red'
