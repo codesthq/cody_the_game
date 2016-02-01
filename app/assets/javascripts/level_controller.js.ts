@@ -22,6 +22,7 @@ class LevelController {
     this.loadLevelData();
 
     this.sqrl = this.game.views.hollow.select('.sqrl');
+
     this.buttons.play = this.game.views.hollow.select('.button.play');
     this.buttons.play.click(() => {
       this.play();
@@ -39,7 +40,7 @@ class LevelController {
     this.game.apiClient.submitCode(this.level.id, content, (data) => {
       this.submission = data.submission;
 
-      setTimeout(() => { this.checkSubmissionStatus() }, 500);
+      setTimeout(() => { this.checkSubmissionStatus(); }, 500);
 
     }, () => {
       console.log("Can't submit content of submission");

@@ -13,11 +13,16 @@ class GameController {
   intro:       Intro;
   asset_paths: any;
   levels:      Array<any>
+  viewport:    any;
   apiClient: APIClient;
 
   constructor(asset_paths : any) {
     this.layers      = {}
     this.views       = {};
+    this.viewport    = {
+      width:  window.innerWidth,
+      height: window.innerHeight
+    };
     this.snap        = Snap('#game-wrap');
     this.asset_paths = asset_paths;
     this.apiClient   = new APIClient("/api");
@@ -66,6 +71,10 @@ class GameController {
       this.snap.append(f);
 
       this.views.intro = this.snap.select('svg#intro');
+      this.views.intro.attr({
+        width:  this.viewport.width,
+        height: this.viewport.height
+      });
 
       this.intro = new Intro(this, callback);
       this.intro.init();
@@ -77,8 +86,12 @@ class GameController {
       this.snap.append(f);
 
       this.views.world = this.snap.select('svg#world');
+      this.views.world.attr({
+        width:  this.viewport.width,
+        height: this.viewport.height
+      });
 
-      this.layers.tree = this.snap.select('#layer1');
+      this.layers.tree   = this.snap.select('#layer1');
       this.layers.layer1 = this.snap.select('#layer2');
       this.layers.layer2 = this.snap.select('#layer3');
     });
@@ -87,12 +100,17 @@ class GameController {
       this.snap.append(f);
 
       this.views.hollow = this.snap.select('svg#hollow');
-      this.views.hollow.attr({ visibility: 'hidden', opacity: 0 });
+      this.views.hollow.attr({
+        width:      this.viewport.width,
+        height:     this.viewport.height,
+        visibility: 'hidden',
+        opacity:    0
+      });
 
       this.level = new LevelController(this, level);
       this.level.init();
 
-      setTimeout(() => { this.level.enterLevel() }, 500);
+      setTimeout(() => { this.level.enterLevel(); }, 500);
     });
   };
 }
