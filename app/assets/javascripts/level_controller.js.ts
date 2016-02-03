@@ -196,7 +196,7 @@ class LevelController {
   showBulbs() {
     for(let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
-      bulb.transform('t0,-1000').select('text').attr('opacity', 0);
+      bulb.transform('t0,-1000')//.select('text').attr('opacity', 0);
     }
   }
 
@@ -217,7 +217,13 @@ class LevelController {
       let character_id = this.bulbs[i];
       let message = this.getNextMessageForCharacter(character_id);
       if (message) {
-        bulb.select("text").attr({text: message});
+        let p = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><p>' + message + '</p></div></body></foreignObject>')
+
+        bulb.append(p)
+        bulb.select('foreignObject').attr({
+          transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
+        })
+
       }
     }
   }
