@@ -2,9 +2,9 @@
 
 # Writing ordinary if statement is boring. Your task is to implement this
 # funny looking conditional statement.
-# (1 == 1).- -> { puts "true" } { puts "false" } # should print "true"
-# (0 >= 1).- -> { puts "true" } { puts "false" } # should print "false"
-# (0 >= 1).- -> { puts "true" }                  # should do nothing
+# (1 == 1).--> { puts "true" } { puts "false" } # should print "true"
+# (0 >= 1).--> { puts "true" } { puts "false" } # should print "false"
+# (0 >= 1).--> { puts "true" }                  # should do nothing
 
 module Challenge
   class ConditionalStatement < TaskRunner::BaseTask
