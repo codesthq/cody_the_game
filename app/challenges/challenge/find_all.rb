@@ -1,8 +1,5 @@
-# Challenge: implement your own Array#find_all method
-
-# I removed find_all from Array class!
-# Your task is to implement your own Array#find_all method so
-# [1, 2, 3, 4].find_all { |e| e > 2 } would return [3, 4].
+# Implement method "find_all" for Array class.
+# For [1, 2, 3, 4].find_all { |e| e > 2 } method should return [3, 4].
 
 module Challenge
   class FindAll < TaskRunner::BaseTask
