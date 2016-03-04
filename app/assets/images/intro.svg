@@ -2481,10 +2481,10 @@
 	<polygon fill="#FF6B03" points="572.2,797.5 582.4,792.7 574.9,798.2 	"/>
 
 	<g class="button play">
-		<polygon fill="#EE4001" points="1003.3,863.7 634.7,863.7 629.7,859.7 998.3,769.2 1003.3,773.2 		"/>
-		<rect x="629.7" y="769.2" fill="#FF6B03" width="368.6" height="90.5"/>
+		<polygon fill="#EE4001" points="1003.3,763.7 634.7,763.7 629.7,759.7 998.3,669.2 1003.3,673.2 		"/>
+		<rect x="629.7" y="669.2" fill="#FF6B03" width="368.6" height="90.5"/>
 		<g>
-			<text transform="matrix(1 0 0 1 759.4913 843.1104)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
+			<text transform="matrix(1 0 0 1 759.4913 743.1104)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
 		</g>
 	</g>
 
