@@ -289,8 +289,8 @@ class LevelController {
   }
 
   private removeEditor() {
-    this.editor.getTextArea().value = "";
     this.editor.toTextArea();
+    this.editor.getTextArea().value = "";
 
     this.editor = null;
   }
