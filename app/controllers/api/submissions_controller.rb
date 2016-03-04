@@ -1,5 +1,6 @@
 class API::SubmissionsController < API::BaseController
   before_action :set_submission, only: :show
+  before_action :authorize_level!, only: :create
 
   def show
     render json: @submission
@@ -18,6 +19,20 @@ class API::SubmissionsController < API::BaseController
   end
 
   private
+
+  def authorize_level!
+    unless level_authorizer.authorized? level_number
+      head status: :unauthorized
+    end
+  end
+
+  def level_authorizer
+    @level_authorizer ||= LevelAuthorizer.new current_session
+  end
+
+  def level_number
+    submission_params[:level_id]
+  end
 
   def enqueue_submission_verification(submission)
     SubmissionVerifierJob.perform_later submission.id

@@ -1,5 +1,5 @@
 class API::LevelsController < API::BaseController
-  before_action :authorize_level, only: :show
+  before_action :authorize_level!, only: :show
 
   def index
     render json: Level.all, each_serializer: LevelBaseSerializer, status: :ok
@@ -13,7 +13,7 @@ class API::LevelsController < API::BaseController
 
   private
 
-  def authorize_level
+  def authorize_level!
     unless level_authorizer.authorized? level_number
       head status: :unauthorized
     end
