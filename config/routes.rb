@@ -17,5 +17,4 @@ Rails.application.routes.draw do
 
   root to: "menu#show"
   get "/game", to: "game#show"
-  get "/level", to: "level#show"
 end

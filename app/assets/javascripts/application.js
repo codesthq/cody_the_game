@@ -12,3 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require snapsvg
+//= require services/api_client
+//= require codemirror
+//= require codemirror/modes/ruby
+//= require game_controller
