@@ -53,7 +53,7 @@ class LevelController {
       setTimeout(() => { this.checkSubmissionStatus(); }, 500);
 
     }, () => {
-      console.error("Can't submit content of submission");
+      alert("Can't submit content of submission");
     });
   }
 
@@ -72,7 +72,7 @@ class LevelController {
         });
       }
     }, () => {
-      console.error("Can't check status of submission")
+      alert("Can't check status of submission")
     });
   }
 
@@ -94,7 +94,7 @@ class LevelController {
         this.messages[message.character_id].push(message.content);
       }
     }, () => {
-      console.error("Can't load level");
+      alert("Can't load level");
     });
   }
 
@@ -103,7 +103,6 @@ class LevelController {
 
     var _timeout  = 3000;
     var _move     = this.step * (level + 1);
-
     this.game.layers.tree.animate({
       transform: 't0,'+ _move
     }, _timeout, () => {

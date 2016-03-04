@@ -44,7 +44,7 @@ class GameController {
   }
 
   loadLevels(callback?: () => any) {
-    let errorFunction = () => { console.error("Could not load levels"); }
+    let errorFunction = () => { alert("Could not load levels"); }
     this.apiClient.listLevels((data) => {
       this.levels = data.levels;
       this.apiClient.getCurrentUserLevel((data) => {
