@@ -1,14 +1,14 @@
-# Challenge: implement simple dsl language.
-
 # Implement class Squirrel in a way below API will be supported.
 #
 # squirrel = Squirrel.new
+#
 # squirrel.fight do
 #   jump
 #   kick
 #   punch
 #   jump
 # end
+#
 # squirrel.actions #=> ["jump", "kick", "punch", "jump"]
 
 module Challenge
