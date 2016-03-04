@@ -53,7 +53,7 @@ class LevelController {
       setTimeout(() => { this.checkSubmissionStatus(); }, 500);
 
     }, () => {
-      console.log("Can't submit content of submission");
+      console.error("Can't submit content of submission");
     });
   }
 
@@ -72,7 +72,7 @@ class LevelController {
         });
       }
     }, () => {
-      console.log("Can't check status of submission")
+      console.error("Can't check status of submission")
     });
   }
 
