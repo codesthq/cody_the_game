@@ -93,7 +93,7 @@ class LevelController {
         this.messages[message.character_id].push(message.content);
       }
     }, () => {
-      console.error("Can't load conversations");
+      console.error("Can't load level");
     });
   }
 
