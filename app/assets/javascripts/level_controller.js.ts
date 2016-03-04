@@ -178,8 +178,7 @@ class LevelController {
   }
 
   showMenu() {
-    this.setScore(10);
-    window.alert('This is a menuuuuuuuu xD');
+    window.location.href = '/';
   }
 
   setScore(score: number) {
