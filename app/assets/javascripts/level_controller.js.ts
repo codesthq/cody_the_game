@@ -266,7 +266,6 @@ class LevelController {
     let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><pre><code>' + questionContent + '</code></pre></div></div></body></foreignObject>');
     let bulb = this.getBulb(0);
 
-    // console.log(bulb)
     bulb.transform('t0,0')
     bulb.select('foreignObject').remove()
     bulb.append(body)
