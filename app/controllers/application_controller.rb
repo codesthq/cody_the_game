@@ -6,19 +6,10 @@ class ApplicationController < ActionController::Base
   private
 
   def current_session
-    @current_session ||= begin
-      if cookies[:cody_user].present?
-        game_session = GameSession.find_by cookie_key: cookies[:cody_user]
-        game_session ? game_session : create_game_session
-      else
-        create_game_session
-      end
-    end
+    @current_session ||= authenticator.authenticate_game_sassion
   end
 
-  def create_game_session
-    enc = SecureRandom.base64(24)
-    cookies[:cody_user] = enc
-    GameSession.create cookie_key: enc
+  def authenticator
+    GameSessionAuthenticator.new cookies
   end
 end
