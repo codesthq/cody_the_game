@@ -5,9 +5,12 @@ class SubmissionVerifier
     @submission = submission
   end
 
-  def verify
+  def verify!
     if submission_succeed?
       submission.succeed!
+
+      level_updater = LevelUpdater.new submission
+      level_updater.update!
     else
       submission.failed!
     end
@@ -28,6 +31,6 @@ class SubmissionVerifier
   end
 
   def task
-    submission.level.task
+    @task ||= submission.level.task
   end
 end

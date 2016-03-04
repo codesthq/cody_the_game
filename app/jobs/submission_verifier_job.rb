@@ -5,6 +5,6 @@ class SubmissionVerifierJob < ActiveJob::Base
     submission = Submission.find submission_id
 
     submission_validator = SubmissionVerifier.new submission
-    submission_validator.verify
+    submission_validator.verify!
   end
 end
