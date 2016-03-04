@@ -15,6 +15,7 @@ class GameController {
   levels:      Array<any>
   viewport:    any;
   apiClient: APIClient;
+  maxLevel:    number;
 
   constructor(asset_paths : any) {
     this.layers      = {}
@@ -43,18 +44,26 @@ class GameController {
   }
 
   loadLevels(callback?: () => any) {
+    let errorFunction = () => { console.error("Could not load levels"); }
     this.apiClient.listLevels((data) => {
       this.levels = data.levels;
-      if (callback) {
-        callback();
-      }
-    }, () => {
-      console.error("Could not load levels");
-    })
+      this.apiClient.getCurrentUserLevel((data) => {
+        this.maxLevel = data.current_level_id - 1;
+        if (callback) {
+          callback();
+        }
+      }, errorFunction)
+    }, errorFunction)
   }
 
   getCurrentLevel() {
-    return this.readLevelFromHash() || 0;
+    let levelFromHash = this.readLevelFromHash();
+
+    if (levelFromHash) {
+      return (levelFromHash > this.maxLevel) ? this.maxLevel : levelFromHash;
+    } else {
+      return 0;
+    }
   }
 
   readLevelFromHash(): number {
