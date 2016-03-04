@@ -9,6 +9,7 @@ class LevelController {
   sqrl:         any;
   bulbs:        Array<number> = [];
   buttons:      any = {};
+  ui:           any = {};
   messages:     { [character_id: number] : Array<string> } = {};
   editor:       CodeMirror.EditorFromTextArea;
   submission:   any = {};
@@ -20,6 +21,15 @@ class LevelController {
 
   init() {
     this.loadLevelData();
+
+    this.ui = Snap('svg#ui');
+    this.ui.select('g#hint-trigger').click( () => {
+      this.showHint();
+    });
+
+    this.ui.select('g#menu-trigger').click( () => {
+      this.showMenu();
+    });
 
     this.sqrl = this.game.views.hollow.select('.sqrl');
 
@@ -129,6 +139,8 @@ class LevelController {
     this.hide(this.game.views.world);
     this.show(this.game.views.hollow);
 
+    this.showAndAnimate(this.ui, 500);
+
     this.sqrl.transform('t-500,0');
     this.showBulbs();
     this.startConversation();
@@ -140,6 +152,7 @@ class LevelController {
   }
 
   exitLevel(callback : () => any) {
+    this.hide(this.ui);
     this.show(this.game.views.world);
     this.hide(this.game.views.hollow);
 
@@ -156,8 +169,21 @@ class LevelController {
       this.showSubmissionForm();
       this.showAndAnimate(this.buttons.validate);
     }, 600);
+  }
 
+  showHint() {
+    this.setScore(20);
+    window.alert('This is a hint! x.x');
+  }
 
+  showMenu() {
+    this.setScore(10);
+    window.alert('This is a menuuuuuuuu xD');
+  }
+
+  setScore(score: number) {
+
+    this.ui.select('text#score').attr({ text: score });
   }
 
   animationEntering() {
@@ -167,6 +193,7 @@ class LevelController {
 
     for (let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
+
       bulb.animate({
         transform: 't0,0'
       }, 400, function () {

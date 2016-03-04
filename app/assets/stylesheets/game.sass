@@ -38,6 +38,12 @@ text, tspan
     text-align: center
     vertical-align: middle
 
+#ui
+  position: absolute
+  top: 20px
+  left: 20px
+  z-index: 1000
+
 svg
   display: block
   transition: opacity 250ms
@@ -57,6 +63,14 @@ svg
 
 .button
   cursor: pointer
+
+
+.ui.button
+  text
+    fill: #FFF
+
+    &:hover
+      fill: #F36D21
 
 #submission
   display: none
