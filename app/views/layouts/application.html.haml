@@ -5,7 +5,11 @@
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
+
+    %meta{:content => "Cody – Ruby Adventure Game", :property => "og:title"}/
+    %meta{:content => "http://play.codesthq.com/assets/cover.png", :property => "og:image"}/
+    %meta{:content => "Cody – Ruby Adventure Game", :property => "og:site_name"}/
+    %meta{:content => "Play an adventure game in Ruby world ", :property => "og:description"}/
+
   %body
     = yield
-
-    
