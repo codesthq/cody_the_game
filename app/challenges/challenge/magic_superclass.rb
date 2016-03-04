@@ -29,10 +29,13 @@ module Challenge
           end
         end
 
-        puts [(MyFunnyClass.new.foo rescue "MyFunnyClass#foo NoMethodError"), MyOtherClass.new.foo].join(",")
+        funny    = MyFunnyClass.new
+        ordinary = MyOtherClass.new
+
+        puts [(funny.foo rescue "MyFunnyClass#foo NoMethodError"), funny.class.name, funny.nil?,  ordinary.foo].join(",")
       CODE
 
-      result.success? && result.stdout == "MyFunnyClass#foo NoMethodError,MyOtherClass#foo called"
+      result.success? && result.stdout == "MyFunnyClass#foo NoMethodError,MyFunnyClass,false,MyOtherClass#foo called"
     end
   end
 end
