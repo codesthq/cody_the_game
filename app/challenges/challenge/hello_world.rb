@@ -1,4 +1,4 @@
-# Challenge: write a program which prints "Hello World!" on the screen.
+# Write a program that prints "Hello World!" on the screen.
 
 module Challenge
   class HelloWorld < TaskRunner::BaseTask
