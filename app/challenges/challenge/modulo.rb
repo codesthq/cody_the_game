@@ -1,10 +1,9 @@
-# Challenge: implement your own modulo operator
-
-# I removed % operator for integer numbers!
-# Your task is to re-implement it in that way following code will work properly:
+# Re-implement nodule operator it in that way following code will work properly:
+# 
 # 10 % 3 #=> 1
 # 23 % 0 # raises ZeroDivisionError error
-# Don't worry about negative numbers. I don't use them because I don't like them.
+#
+# Don't worry about negative numbers.
 
 module Challenge
   class Modulo < TaskRunner::BaseTask
