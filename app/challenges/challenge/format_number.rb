@@ -1,6 +1,5 @@
-# Challenge: convert number to string according to formatting rule
-
-# Write a method called 'format_number' which converts given integer number to string like this:
+# Implement a method called 'format_number' that converts given integer number to string like this:
+#
 # format_number(1234)    #=> "1_234"
 # format_number(-1234)   #=> "-1_234"
 # format_number(134567)  #=> "134_567"
