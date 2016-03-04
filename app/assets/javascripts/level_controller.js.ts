@@ -49,14 +49,17 @@ class LevelController {
   handleSubmissionForm() {
     let content = this.editor.getDoc().getValue();
 
-    this.game.apiClient.submitCode(this.level.id, content, (data) => {
-      this.submission = data.submission;
+    if (content === "") {
+      alert("You can't submit empty answer");
+    } else {
+      this.game.apiClient.submitCode(this.level.id, content, (data) => {
+        this.submission = data.submission;
 
-      setTimeout(() => { this.checkSubmissionStatus(); }, 500);
-
-    }, () => {
-      alert("Can't submit content of submission");
-    });
+        setTimeout(() => { this.checkSubmissionStatus(); }, 500);
+      }, () => {
+        alert("Can't submit content of submission");
+      });
+    }
   }
 
   checkSubmissionStatus() {
