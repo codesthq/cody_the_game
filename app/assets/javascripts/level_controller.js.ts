@@ -81,6 +81,7 @@ class LevelController {
       this.level = data.level;
       let characters = this.level.characters;
       let conversation = this.level.conversation;
+      this.bulbs = [];
 
       for(let character of characters) {
         this.bulbs.push(character.id);
@@ -231,11 +232,12 @@ class LevelController {
     for(let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
       bulb.transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
+      bulb.select('foreignObject').remove();
     }
   }
 
-  getBulb(character_id: number) {
-    return this.game.views.hollow.select('#bulb' + character_id);
+  getBulb(bulb_id: number) {
+    return this.game.views.hollow.select('#bulb' + bulb_id);
   }
 
   startConversation() {
@@ -244,6 +246,7 @@ class LevelController {
       let character_id = this.bulbs[i];
       let message = this.getNextMessageForCharacter(character_id);
       if (message) {
+
         let p = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><p>' + message + '</p></div></body></foreignObject>')
 
         bulb.append(p)
@@ -267,7 +270,6 @@ class LevelController {
     let bulb = this.getBulb(0);
 
     bulb.transform('t0,0')
-    bulb.select('foreignObject').remove()
     bulb.append(body)
     bulb.select('foreignObject').attr({
       transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
@@ -283,6 +285,7 @@ class LevelController {
   private hideSubmissionForm() {
     $("#submission").hide();
     this.removeEditor();
+    this.getBulb(0).select('foreignObject').remove();
   }
 
   private removeEditor() {
