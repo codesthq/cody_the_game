@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resource :ping, only: [:show]
   end
 
+  root to: "menu#show"
   get "/game", to: "game#show"
   get "/level", to: "level#show"
 end
