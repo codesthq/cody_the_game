@@ -32,18 +32,6 @@ class GameController {
   start() {
     this.loadLevels(() => {
       let level = this.getCurrentLevel();
-      let last_level = this.levels[this.levels.length - 1].position - 1;
-
-      if (level === last_level) {
-        window.location.href = "/summary";
-        return;
-      }
-
-      if (level > last_level) {
-        window.location.href = "/";
-        return;
-      }
-
       if (level == 0) {
         this.loadIntro(() => {
           this.initLevelController(level);

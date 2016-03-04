@@ -1,22 +1,24 @@
 /// <reference path='./codemirror.d.ts'/>
 
 class LevelController {
-  game:         GameController;
-  step:         number = 900;
-  position:     number;
-  level:        any;
-  t:            any;
-  sqrl:         any;
-  bulbs:        Array<number> = [];
-  buttons:      any = {};
-  ui:           any = {};
-  messages:     { [character_id: number] : Array<string> } = {};
-  editor:       CodeMirror.EditorFromTextArea;
-  submission:   any = {};
+  game:          GameController;
+  step:          number = 900;
+  position:      number;
+  level:         any;
+  last_position: number;
+  t:             any;
+  sqrl:          any;
+  bulbs:         Array<number> = [];
+  buttons:       any = {};
+  ui:            any = {};
+  messages:      { [character_id: number] : Array<string> } = {};
+  editor:        CodeMirror.EditorFromTextArea;
+  submission:    any = {};
 
   constructor(game: GameController, position: number) {
     this.game     = game;
     this.position = position;
+    this.last_position = game.levels[game.levels.length - 1].position - 1;
   }
 
   init() {
@@ -99,10 +101,15 @@ class LevelController {
   }
 
   changeLevel(level : number, callback : () => any) {
+    let next_position = level + 1;
+    if (next_position > this.last_position) {
+      window.location.href = "/summary";
+    }
+
     this.hideSubmissionForm();
 
     var _timeout  = 3000;
-    var _move     = this.step * (level + 1);
+    var _move = this.step * next_position;
     this.game.layers.tree.animate({
       transform: 't0,'+ _move
     }, _timeout, () => {
