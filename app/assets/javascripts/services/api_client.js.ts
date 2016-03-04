@@ -26,8 +26,8 @@ class APIClient{
       .fail(error);
   }
 
-  getCurrentUserLevel(callback: SuccessCallback, error: ErrorCallback) {
-    var path = [this.ENDPOINT, "levels", "current_user_level"].join("/");
+  getGameSession(callback: SuccessCallback, error: ErrorCallback) {
+    var path = [this.ENDPOINT, "game_session"].join("/");
 
     $.get(path)
         .done(callback)

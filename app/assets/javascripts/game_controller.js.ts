@@ -46,8 +46,8 @@ class GameController {
     let errorFunction = () => { alert("Could not load levels"); }
     this.apiClient.listLevels((data) => {
       this.levels = data.levels;
-      this.apiClient.getCurrentUserLevel((data) => {
-        this.maxLevel = data.current_level_id - 1;
+      this.apiClient.getGameSession((data) => {
+        this.maxLevel = data.game_session.max_level - 1;
         if (callback) {
           callback();
         }

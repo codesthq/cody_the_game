@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   mount Sidekiq::Web, at: "/sidekiq"
 
   namespace :api, defaults: { format: :json } do
-    resources :levels do
-      get :current_user_level, on: :collection
-    end
+    resource :game_session
+
+    resources :levels
     resources :submissions, only: [:create, :show]
 
     resource :ping, only: [:show]
