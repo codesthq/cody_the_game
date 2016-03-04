@@ -1,7 +1,5 @@
-# I have a funny case for you!
-# Write such a code that allows to use ~:foo syntax in 'case' statement like this:
-#
 # any_object = []
+#
 # case any_object
 # when ~:foo
 #   # any_object responds to :foo method
@@ -9,6 +7,8 @@
 #   # any_object responds to :size method
 # else
 # end
+#
+# Implement a code that allows to use ~:foo syntax in 'case' statement.
 
 module Challenge
   class Case < TaskRunner::BaseTask
