@@ -1,6 +1,5 @@
-# Write a program which prints sentence "Ruby was released in 1995!" on screen.
-# Use can use only a-zA-Z.<space><new line> (small & big letters, dot, space and new line)
-# characters in your source code.
+# Write a Ruby program that prints sentence "Ruby was released in 1995!" on the screen
+# by using only small letters, big letters, dots, spaces and new lines.
 
 module Challenge
   class RubyWasReleased < TaskRunner::BaseTask
