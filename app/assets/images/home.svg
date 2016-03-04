@@ -1695,19 +1695,19 @@
 		<rect x="519.5" y="358.8" fill="none" width="580" height="53.5"/>
 		<text transform="matrix(1 0 0 1 705.6122 411.7495)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">NEW GAME</text>
 	</g>
-	<g id="ranking" class="button">
+	<g id="ranking" class="button" visibility="hidden">
 		<rect x="487.3" y="458" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="453.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
 		<text transform="matrix(1 0 0 1 721.4159 522.0635)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">RANKING</text>
 	</g>
-	<g id="credits" class="button">
+	<g id="credits" class="button" visibility="hidden">
 		<rect x="487.3" y="567.1" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="561.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="576.2" fill="none" width="580" height="53.5"/>
 		<text transform="matrix(1 0 0 1 729.1561 629.1602)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">CREDITS</text>
 	</g>
-	<g id="tw" class="button">
+	<g id="tw" class="button"  visibility="hidden">
 		<circle fill="#FFFFFF" cx="880" cy="734.7" r="50"/>
 		<g>
 			<g>
@@ -1719,7 +1719,7 @@
 			</g>
 		</g>
 	</g>
-	<g id="fb" class="button">
+	<g id="fb" class="button"  visibility="hidden">
 		<circle fill="#FFFFFF" cx="729.8" cy="734.7" r="50"/>
 		<g>
 			<g>
