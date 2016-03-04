@@ -6,10 +6,11 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
 
-    %meta{:content => "Cody – Ruby Adventure Game", :property => "og:title"}/
-    %meta{:content => asset_url("cover.png"), :property => "og:image"}/
-    %meta{:content => "Cody – Ruby Adventure Game", :property => "og:site_name"}/
-    %meta{:content => "Play an adventure game in Ruby world ", :property => "og:description"}/
+    %meta{ :property => "og:title", :content => "Cody – Ruby Adventure Game" }/
+    %meta{ :property => "og:image", :content => asset_url("cover.png") }/
+    %meta{ :property => "og:site_name", :content => "Cody – Ruby Adventure Game" }/
+    %meta{ :property => "og:description", :content => "Play an adventure game in Ruby world " }/
+    %meta{ :property => "og:url", :content => "http://play.codesthq.com/" }/
 
   %body
     = yield
