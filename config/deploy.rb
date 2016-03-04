@@ -79,12 +79,9 @@ namespace :puma do
         within current_path do
           with rack_env: fetch(:puma_env) do
             if test "[ -f #{fetch(:puma_pid)} ]" and test "kill -0 $( cat #{fetch(:puma_pid)} )"
-              # NOTE pid exist but state file is nonsense, so ignore that case
-              execute "kill -s USR1 $( cat #{fetch(:puma_pid)} )"
-            else
-              # Puma is not running or state file is not present : Run it
-              execute :bundle, 'exec', :puma, "-C #{fetch(:puma_conf)}"
+              execute :bundle, "exec pumactl -S #{fetch(:puma_state)} stop; rm #{fetch(:puma_pid)}; rm #{fetch(:puma_state)}"
             end
+            execute :bundle, 'exec', :puma, "-C #{fetch(:puma_conf)}"
           end
         end
       end
