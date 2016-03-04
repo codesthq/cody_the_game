@@ -1,10 +1,14 @@
 = embedded_svg "home.svg"
 
+- if @max_level.present? && @max_level > 1
+  :javascript
+    $('g#continue').on('click', function() {
+      window.location.href = '/game#' + #{@max_level - 1};
+    });
+- else
+  :javascript
+    $('g#continue').remove();
 :javascript
-  $('g#continue').on('click', function() {
-    alert("Continue triggered!!!");
-  });
-
   $('g#newgame').on('click', function() {
     window.location.href = '/game';
   });
