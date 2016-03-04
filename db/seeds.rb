@@ -1,5 +1,5 @@
-def create_level(params:)
-  Level.create! params
+def find_create_level(params:)
+  Level.find_or_create_by! params
 end
 
 def create_character(params:, level:)
@@ -54,16 +54,16 @@ levels = [
 ]
 
 tasks = [
-  { content: "I have a funny case for you!\nWrite such a code that allows to use ~:foo syntax in 'case' statement like this:\n\nany_object = []\ncase any_object\nwhen ~:foo\n  # any_object responds to :foo method\nwhen ~:size\n  # any_object responds to :size method\nelse\nend", points: 2, start_code: "What do you think, hmm?" },
-  { content: "Are eyebrows considered facial hair?", points: 1 },
-  { content: "Why are there no 'B' batteries? ", points: 2 },
-  { content: "How do you handcuff a one-armed man?", points: 3 },
-  { content: "Can animals commit suicide?", points: 4 },
-  { content: "If money doesn't grow on trees then why do banks have branches?", points: 2 },
-  { content: "What's the difference between normal ketchup and fancy ketchup?", points: 5, start_code: "Just ketchup" },
-  { content: "What does it mean to dod?", points: 8 },
-  { content: "Another hehe question stuff", points: 6 },
-  { content: "What's the difference between normal ketchup and fancy ketchup?", points: 1, start_code: "def setup; puts 'hehe'; end" }
+  { content: "I have a funny case for you!\nWrite such a code that allows to use ~:foo syntax in 'case' statement like this:\nany_object = []\ncase any_object\nwhen ~:foo\n# any_object responds to :foo method\nwhen ~:size\n# any_object responds to :size method\nelse\nend", points: 2, start_code: "What do you think, hmm?" },
+  { content: "Challenge: implement this funny syntax for conditional statement\nWriting ordinary if statement is boring. Your task is to implement this\nfunny looking conditional statement.\n(1 == 1).--> { puts 'true' } { puts 'false' } # should print 'true'\n (0 >= 1).--> { puts 'true' } { puts 'false' } # should print 'false'\n (0 >= 1).--> { puts 'true' }\nshould do nothing", points: 1 },
+  { content: "Challenge: implement simple dsl language.\n\nImplement class Squirrel in a way below API will be supported.\nsquirrel = Squirrel.new\n squirrel.fight do\n jump\n kick\n punch\n jump\n end\n squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']", points: 2 },
+  { content: "Challenge: implement your own Array#find_all method\n\nI removed find_all from Array class!\nYour task is to implement your own Array#find_all method so\n[1, 2, 3, 4].find_all { |e| e > 2 } would return [3, 4].", points: 3 },
+  { content: "Challenge: write a program which prints 'Hello World!' on the screen.", points: 4 },
+  { content: "Challenge: implement your own modulo operator\n\nI removed % operator for integer numbers!\nYour task is to re-implement it in that way following code will work properly:\n10 % 3 #=> 1\n23 % 0 # raises ZeroDivisionError error\nDon't worry about negative numbers. I don't use them because I don't like them.", points: 2 },
+  { content: "Challenge: write a method 'change_object'\n\nYour task is to implement a method 'change_object' in such a way that in following code:\n\nobject = Object.new\nchange_object(object)\n\ndef empty?(o)\no.size == 0\nend\n\nempty?(o)\n\ncalling empty?(o) would return 'Hello World!' string.", points: 5, start_code: "Just ketchup" },
+  { content: "Write a program which prints sentence 'Ruby was released in 1995!' on screen.\nUse can use only a-zA-Z.<space><new line> (small & big letters, dot, space and new line)\ncharacters in your source code.", points: 8 },
+  { content: "Challenge\n\nHere is the funny method I wrote once:\n\ndef ruby_love\nWe ♥ Ruby! What about you?\nend\n\n This method should return 'I ♥ Ruby too!' string. You can't change 'ruby_love' method at all.", points: 6 },
+  { content: "Challenge: convert number to string according to formatting rule\n\nWrite a method called 'format_number' which converts given integer number to string like this:\nformat_number(1234)    #=> '1_234'\nformat_number(-1234)   #=> '-1_234'\nformat_number(134567)  #=> '134_567'\nformat_number(49)      #=> '49'", points: 1, start_code: "def setup; puts 'hehe'; end" }
 ]
 
 conversations = [
@@ -119,7 +119,7 @@ conversations = [
 ]
 
 levels.each_with_index do |level_params, i|
-  level = create_level params: level_params
+  level = find_create_level params: level_params
 
   create_task(params: tasks[i], level: level.id)
 
