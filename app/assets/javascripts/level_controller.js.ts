@@ -259,9 +259,40 @@ class LevelController {
     return this.messages[character_id].pop();
   }
 
+
+  showQuestionContent() {
+    let questionContent =
+      `Your task is to implement a method 'change_object' in such a way that in following code:
+
+      object = Object.new
+      change_object(object)
+
+      def empty?(o)
+        o.size == 0
+      end
+
+      empty?(o)
+
+
+      calling empty?(o) would return Hello World! string.
+    `;
+
+    let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><pre><code>' + questionContent + '</code></pre></div></div></body></foreignObject>');
+    let bulb = this.getBulb(0);
+
+    // console.log(bulb)
+    bulb.transform('t0,0')
+    bulb.select('foreignObject').remove()
+    bulb.append(body)
+    bulb.select('foreignObject').attr({
+      transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
+    })
+  }
+
   private showSubmissionForm() {
     $("#submission").show();
     this.addEditor();
+    this.showQuestionContent();
   }
 
   private hideSubmissionForm() {
