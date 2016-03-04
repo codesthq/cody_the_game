@@ -15,7 +15,7 @@ class GameController {
   levels:      Array<any>
   viewport:    any;
   apiClient: APIClient;
-  maxLevel:    number;
+  currentLevel:    number;
 
   constructor(asset_paths : any) {
     this.layers      = {}
@@ -47,7 +47,7 @@ class GameController {
     this.apiClient.listLevels((data) => {
       this.levels = data.levels;
       this.apiClient.getGameSession((data) => {
-        this.maxLevel = data.game_session.max_level - 1;
+        this.currentLevel = data.game_session.current_level - 1;
         if (callback) {
           callback();
         }
@@ -59,7 +59,7 @@ class GameController {
     let levelFromHash = this.readLevelFromHash();
 
     if (levelFromHash) {
-      return (levelFromHash > this.maxLevel) ? this.maxLevel : levelFromHash;
+      return (levelFromHash > this.currentLevel) ? this.currentLevel : levelFromHash;
     } else {
       return 0;
     }

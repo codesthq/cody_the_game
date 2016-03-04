@@ -1,9 +1,9 @@
 = embedded_svg "home.svg"
 
-- if @max_level.present? && @max_level > 1
+- if @current_level.present? && @current_level > 1
   :javascript
     $('g#continue').on('click', function() {
-      window.location.href = '/game#' + #{@max_level - 1};
+      window.location.href = '/game#' + #{@current_level - 1};
     });
 - else
   :javascript

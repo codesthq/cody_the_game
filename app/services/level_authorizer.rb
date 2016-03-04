@@ -12,6 +12,6 @@ class LevelAuthorizer
   end
 
   def authorized?(level_number)
-    current_session.max_level >= level_number.to_i
+    current_session.current_level >= level_number.to_i
   end
 end

@@ -7,7 +7,7 @@ class LevelUpdater
 
   def update!
     if perform_update?
-      game_session.update max_level: succeeding_level
+      game_session.update current_level: succeeding_level
     end
   end
 
@@ -26,7 +26,7 @@ class LevelUpdater
   end
 
   def succeeding_level?
-    succeeding_level > game_session.max_level
+    succeeding_level > game_session.current_level
   end
 
   def level_authorizer
