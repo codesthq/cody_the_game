@@ -54,7 +54,7 @@ levels = [
 ]
 
 tasks = [
-  { content: "Why doesn't McDonald's sell hotdogs? ", points: 2, start_code: "What do you think, hmm?" },
+  { content: "I have a funny case for you!\nWrite such a code that allows to use ~:foo syntax in 'case' statement like this:\n\nany_object = []\ncase any_object\nwhen ~:foo\n  # any_object responds to :foo method\nwhen ~:size\n  # any_object responds to :size method\nelse\nend", points: 2, start_code: "What do you think, hmm?" },
   { content: "Are eyebrows considered facial hair?", points: 1 },
   { content: "Why are there no 'B' batteries? ", points: 2 },
   { content: "How do you handcuff a one-armed man?", points: 3 },

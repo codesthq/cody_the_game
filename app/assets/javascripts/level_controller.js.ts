@@ -20,7 +20,7 @@ class LevelController {
   }
 
   init() {
-    this.loadLevelData();
+    this.initializeLevel();
 
     this.ui = Snap('svg#ui');
     this.ui.select('g#hint-trigger').click( () => {
@@ -76,11 +76,11 @@ class LevelController {
     });
   }
 
-  loadConversation() {
-    this.game.apiClient.getLevel(this.level.id, (data) => {
-      let level = data.level;
-      let characters = level.characters;
-      let conversation = level.conversation;
+  loadLevelData(levelId: number) {
+    this.game.apiClient.getLevel(levelId, (data) => {
+      this.level = data.level;
+      let characters = this.level.characters;
+      let conversation = this.level.conversation;
 
       for(let character of characters) {
         this.bulbs.push(character.id);
@@ -126,13 +126,13 @@ class LevelController {
     }, mina.easeinout);
 
     this.position++;
-    this.loadLevelData();
+    this.initializeLevel();
   };
 
-  loadLevelData() {
+  initializeLevel() {
     window.location.hash = String(this.position);
-    this.level = this.game.levels[this.position];
-    this.loadConversation();
+    let levelId = this.game.levels[this.position].id;
+    this.loadLevelData(levelId);
   }
 
   enterLevel() {
@@ -261,21 +261,7 @@ class LevelController {
 
 
   showQuestionContent() {
-    let questionContent =
-      `Your task is to implement a method 'change_object' in such a way that in following code:
-
-      object = Object.new
-      change_object(object)
-
-      def empty?(o)
-        o.size == 0
-      end
-
-      empty?(o)
-
-
-      calling empty?(o) would return Hello World! string.
-    `;
+    let questionContent = this.level.task.content;
 
     let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><pre><code>' + questionContent + '</code></pre></div></div></body></foreignObject>');
     let bulb = this.getBulb(0);
