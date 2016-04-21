@@ -900,4 +900,12 @@
 		<polygon style="fill:#F1ECE3;" points="370.9,331 370.9,409.4 321.5,433.4 370.9,455.6 370.9,532.1 940.9,532.1 940.9,331 "/>
 		<text  class="bulb-matrix" transform="matrix(1 0 0 1 380 338)"></text>
 	</g>
+
+	<foreignObject id="submission" width="500" height="100" transform="matrix(1,0,0,1,380,300)">
+		<body xmlns="http://www.w3.org/1999/xhtml">
+			<textarea id="content"></textarea>
+		</body>
+	</foreignObject>
+
+
 </svg>
