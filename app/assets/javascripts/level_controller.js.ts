@@ -44,6 +44,8 @@ class LevelController {
     this.buttons.validate.click(() => {
       this.handleSubmissionForm();
     });
+
+    this.buttons.inprogress = this.game.views.hollow.select('.inprogress');
   }
 
   handleSubmissionForm() {
@@ -54,6 +56,7 @@ class LevelController {
     } else {
       this.game.apiClient.submitCode(this.level.id, content, (data) => {
         this.submission = data.submission;
+        this.showInProgressButton();
 
         setTimeout(() => { this.checkSubmissionStatus(); }, 500);
       }, () => {
@@ -70,6 +73,7 @@ class LevelController {
       if (status === "pending") {
         setTimeout(() => { this.checkSubmissionStatus() }, 500);
       } else if (status === "failed") {
+        this.showValidateButton();
         alert("FAILED!");
       } else if (status === "succeed") {
         this.exitLevel(() => {
@@ -77,6 +81,7 @@ class LevelController {
         });
       }
     }, () => {
+      this.showValidateButton();
       alert("Can't check status of submission")
     });
   }
@@ -157,6 +162,7 @@ class LevelController {
 
     this.hide(this.buttons.play);
     this.hide(this.buttons.validate);
+    this.hide(this.buttons.inprogress);
 
     this.animationEntering();
   }
@@ -282,6 +288,16 @@ class LevelController {
     bulb.select('foreignObject').attr({
       transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
     })
+  }
+
+  showValidateButton(){
+    this.show(this.buttons.validate);
+    this.hide(this.buttons.inprogress);
+  }
+
+  showInProgressButton(){
+    this.hide(this.buttons.validate);
+    this.show(this.buttons.inprogress);
   }
 
   private showSubmissionForm() {
