@@ -1,19 +1,20 @@
 /// <reference path='./codemirror.d.ts'/>
 
 class LevelController {
-  game:          GameController;
-  step:          number = 900;
-  position:      number;
-  level:         any;
-  last_position: number;
-  t:             any;
-  sqrl:          any;
-  bulbs:         Array<number> = [];
-  buttons:       any = {};
-  ui:            any = {};
-  messages:      { [character_id: number] : Array<string> } = {};
-  editor:        CodeMirror.EditorFromTextArea;
-  submission:    any = {};
+  game:            GameController;
+  step:            number = 900;
+  position:        number;
+  level:           any;
+  last_position:   number;
+  t:               any;
+  sqrl:            any;
+  bulbs:           Array<number> = [];
+  buttons:         any = {};
+  ui:              any = {};
+  messages:        { [character_id: number] : Array<string> } = {};
+  editor:          CodeMirror.EditorFromTextArea;
+  submission:      any = {};
+  submission_lock: boolean = false;
 
   constructor(game: GameController, position: number) {
     this.game     = game;
@@ -50,18 +51,18 @@ class LevelController {
 
   handleSubmissionForm() {
     let content = this.editor.getDoc().getValue();
-
-    if (content === "") {
-      alert("You can't submit empty answer");
-    } else {
-      this.game.apiClient.submitCode(this.level.id, content, (data) => {
-        this.submission = data.submission;
-        this.showInProgressButton();
-
-        setTimeout(() => { this.checkSubmissionStatus(); }, 500);
-      }, () => {
-        alert("Can't submit content of submission");
-      });
+    if (this.getSubmissionLock() == false) {
+      if (content === "") {
+        alert("You can't submit empty answer");
+      } else {
+        this.game.apiClient.submitCode(this.level.id, content, (data) => {
+          this.submission = data.submission;
+          this.showInProgressButton();
+          setTimeout(() => { this.checkSubmissionStatus(); }, 500);
+        }, () => {
+          alert("Can't submit content of submission");
+        });
+      }
     }
   }
 
@@ -76,11 +77,13 @@ class LevelController {
         this.showValidateButton();
         alert("FAILED!");
       } else if (status === "succeed") {
+        this.showValidateButton();
         this.exitLevel(() => {
           this.changeLevel(this.position, this.enterLevel.bind(this));
         });
       }
     }, () => {
+      this.submission = null;
       this.showValidateButton();
       alert("Can't check status of submission")
     });
@@ -293,11 +296,25 @@ class LevelController {
   showValidateButton(){
     this.show(this.buttons.validate);
     this.hide(this.buttons.inprogress);
+    this.releaseSubmissionLock();
   }
 
   showInProgressButton(){
     this.hide(this.buttons.validate);
     this.show(this.buttons.inprogress);
+    this.blockSubmissionLock();
+  }
+
+  blockSubmissionLock() {
+    return this.submission_lock = true;
+  }
+
+  releaseSubmissionLock(){
+    return this.submission_lock = false;
+  }
+
+  getSubmissionLock(){
+    return this.submission_lock
   }
 
   private showSubmissionForm() {
