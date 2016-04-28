@@ -14,6 +14,7 @@ class LevelController {
   messages:        { [character_id: number] : Array<string> } = {};
   editor:          CodeMirror.EditorFromTextArea;
   submission:      any = {};
+  submission_ttl:  number = 60;
 
   constructor(game: GameController, position: number) {
     this.game     = game;
@@ -61,6 +62,7 @@ class LevelController {
       this.game.apiClient.submitCode(this.level.id, content, (data) => {
         this.submission = data.submission;
         this.lockSubmission();
+        this.resetSubmissionTTL();
         setTimeout(() => { this.checkSubmissionStatus(); }, 500);
       }, () => {
         alert("Can't submit content of submission");
@@ -74,7 +76,13 @@ class LevelController {
       let status = this.submission.status;
 
       if (status === "pending") {
-        setTimeout(() => { this.checkSubmissionStatus() }, 500);
+        if (this.checkSubmissionTTL()) {
+          setTimeout(() => { this.checkSubmissionStatus() }, 500);
+        } else {
+          this.submission = null;
+          this.unlockSubmission();
+          alert("Can't finish your submission. Please try again.")
+        }
       } else if (status === "failed") {
         this.unlockSubmission();
         alert("FAILED!");
@@ -325,6 +333,14 @@ class LevelController {
 
   unlockEditor() {
    this.editor.setOption("readOnly", false);
+  }
+
+  checkSubmissionTTL() {
+    return this.submission_ttl-- > 0;
+  }
+
+  resetSubmissionTTL() {
+    this.submission_ttl = 60;
   }
 
   private showSubmissionForm() {
