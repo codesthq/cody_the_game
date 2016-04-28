@@ -41,11 +41,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content:   "O czym ja to mówiłem? Aaa! Las donosi, że jakiś cienki troll próbuje się dostać na szczyt. Zabieraj lepiej ten plecaczek i wracaj pokodować w logomocji*“. Dwa kroki w tył. Potem prosto w doł i już jesteś w miejscu przeznaczenia.",
-                    character: { name: "Wściekły pies" }
+                    content:   "What was I talking about? Ah, right. The forest says some wimpy troll is trying to get to the top. So take that little backpack of yours and get back to coding in XHTML.Take two steps back, then straight down and you're there.",
+                    character: { name: "The rabid dog" }
                 },
                 {
-                    content:   "Będziesz tak szczekał pieseczku, czy będziesz gryzł?. Będę robił co mi się, cholera / kurka wodna/ motyla noga / proszę ja ciebie/  zachce",
+                    content:   "Are you gonna bark, doggie, or are you gonna bite? I'll do whatever the hell I want to.",
                     character: cody
                 }
             ]
@@ -62,11 +62,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "To jest codekiller? To jest jakaś popierdółka a nie codekiller!“ CODY - PARODY!",
-                    character: { name: "Czarownica" }
+                    content: "You call this a codekiller? This is a damn parody, not a codekiller!",
+                    character: { name: "The witch" }
                 },
                 {
-                    content: "Uspokój się. Zapal sobie szluga, kup popkorn, rozsiądź się wygodnie w pierwszym rzędzie i zobacz jaki przygotowałem na tę okazję teatrzyk!",
+                    content: "Chill out, man. Have a smoke, get some popcorn, kick back in the front row and just watch the show I made for this occasion.",
                     character: cody
                 }
             ]
@@ -83,11 +83,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Widzisz te kocie ruchy? To jest coś czego nigdy nie przyswoisz. Więc daj sobie spokój, wybierz jakiś prosty zawód, który udowodni przewagę czynności manualnych nad intelektem i wejdź w te tryby na sto procent.",
-                    character: { name: "Robot" }
+                    content: "See those moves? You'll never get half as good as that. So just let go, choose some simple job that will prove that manual skills are way better than brains and just give it your 100%.",
+                    character: { name: "The robot" }
                 },
                 {
-                    content: "Że co? Wybacz, nie dosłyszałem. Czy mógłbyś powtórzyć? Chyba słyszałem ciche pierdnięcie… albo była twój gasnący we mgle buraczany pomysł, by mnie zawstydzić",
+                    content: "What? Sorry, I didn't hear you, could you repeat? I thought I heard a fart... or maybe it was just your dumbass idea to shame me flying in the distance.",
                     character: cody
                 }
             ]
@@ -104,11 +104,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Czołem, mały człowieczku. Sporo o tobie słyszałem. Przypomnij sobie jakie słowa chcesz zamieścić na swoim nagrobku",
-                    character: { name: "Golem" }
+                    content: "Hello, little man. I heard a lot about you. Remind me, what words do you want on your tombstone?",
+                    character: { name: "The golem" }
                 },
                 {
-                    content: "Spoko, spoko. Nie wymachuj mi tu cienkimi groźbami. Poruszę niebo i ziemię by cie stąd pozamiatać. Będziesz zwiewał do najgłębszych czeluści tej planety, a tam moi ludzie zaczają się w skalnych szczelinach, dopadną i załatwią cię ciężką amunicją",
+                    content: "Chill, man, easy with those cheesy threats. I'll move heaven and earth to make you run like hell to the deepest cracks this planet has. And even there, my people will find you, they'll get you and blow you to pieces with heavy ammo.",
                     character: cody
                 }
             ]
@@ -125,11 +125,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Zabierzcie mnie no, to coś sprzed nosa! To jakieś żarty, że skarlony koto-szczur staje przed majestatem tak wielkim jak mój i ma czelność podnosić rękawicę!",
-                    character: { name: "Dyktator" }
+                    content: "Get this... this thing out of my sight! How dare this dwarf half-cat, half-rat stand before my majesty and pick up the gauntlet like that!",
+                    character: { name: "The dictator" }
                 },
                 {
-                    content: "Oślepłem, proszę pana. Po prostu oślepłem. Moje oczy zalała fala zażenowania tą nadętą błazenadą. Pozwolę sobie zatem pokazać co potrafię",
+                    content: "I'm blinded, sir. I went blind when I saw your arrogant foolery. Let me show you what I can do.",
                     character: cody
                 }
             ]
@@ -146,11 +146,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Na początek mandacik za przekroczenie wysokości. Będzie odsiadka, jakieś 1,5 roku na nowych przepisach",
-                    character: { name: "Zły policjant" }
+                    content: "We'll start with a ticket for exceeding height limit. You'll go to jail for some year and a half, by the new regulations.",
+                    character: { name: "The bad cop" }
                 },
                 {
-                    content: "Poleciłbym ci zamienić zabawkową spluwę na prawdziwą. Późnej możemy do siebie strzelać… i jeszcze jedno. Ja to tam nie chcę nikogo zabijać. Ale jeśli będę chciał wejść na szczyt drzewa, po tym konarze, a ty staniesz mi na drodze, to tak czy owak będziesz mi musiał zejść z drogi.",
+                    content: "How about you switch that toy gun for a real one? Then we can shoot at one another. Oh, and another thing. I don't really wanna kill anyone but if I want to climb that tree by this branch and you're in my way, then you'll have to move out of it anyway.",
                     character: cody
                 }
             ]
@@ -167,11 +167,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Wymyśliłem do czego się idealnie nadajesz. Zrobię z ciebie balonik w kształcie małego pieska dla 3 letnich dziewczynek",
-                    character: { name: "Klaun" }
+                    content: "I know what you'll be perfect for. I'll make a little dog-shaped balloon for 3-years-old girls out of you!",
+                    character: { name: "The clown" }
                 },
                 {
-                    content: "Chcesz kontynuować tę filozoficzną dysputę tutaj we dwójkę czy mam zawołać jeszcze lokalnych przedstawicieli grup społecznych / subkultur?",
+                    content: "You wanna continue this philosophical dispute here or shall I call other local people to join us?",
                     character: cody
                 }
             ]
@@ -188,11 +188,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Gdzie syneczku? Wiedziałam, że nic z ciebie nie będzie. Zawsze powtarzałam, że wyglądasz groteskowo, jak pomieszanie krzaków z jeżem. Zamiataj stąd.",
-                    character: { name: "Teściowa" }
+                    content: "Where are you going, son? I knew you'd be good for nothing.I always said you look grotesque, like half-bush, half-hedgehog. Get off here.",
+                    character: { name: "The mother-in-law" }
                 },
                 {
-                    content: "Chyba mąż cię nie kocha. Wywołuje we mnie teściowa chwilowy wstręt do ludzi. Zarazą jesteś. Ale nie ze mną takie numery. Udowodnię Ci, że nie jestem tu przez przypadek.",
+                    content: "Looks like your husband doesn't love you anymore. You make me me temporarily sick of people. You're the worst. But hang on, I'll show you I'm not here by accident.",
                     character: cody
                 }
             ]
@@ -209,11 +209,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Słuchaj no, mały, będę z tobą szczery, dobra? Mam głęboko w dupie co wiesz, a czego nie. Jedyne co jest teraz ważne to zapewnienie ci chwilowej zabawy w postaci spadania w dół.",
-                    character: { name: "Radioaktywny szczór" }
+                    content: "Listen, kid, I'll be honest with you, okay? I couldn't care less about what you know and what you don't. What matters to me now is having some fun watching you fall.",
+                    character: { name: "The radioactive rat" }
                 },
                 {
-                    content: "Kurna, w ogóle nie pamiętam, abym kupował jakieś bilety do parku rozrywki. Dzięki, te sobie zatrzymam, a spadanie w dół zaraz stanie się twoim nowym doświadczeniem.",
+                    content: "Damn, I don't remember buying funfair tickets. Thanks, I'll keep those. And speaking of fun: you'll get some in a second when I push you down.",
                     character: cody
                 }
             ]
@@ -230,11 +230,11 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content: "Słuchaj no, mały, będę z tobą szczery, dobra? Mam głęboko w dupie co wiesz, a czego nie. Jedyne co jest teraz ważne to zapewnienie ci chwilowej zabawy w postaci spadania w dół.",
-                    character: { name: "Myśliwy" }
+                    content: "This is where your field trip ends. You won't take another step. This is your last stop on Earth so better have a good look and remember it well.",
+                    character: { name: "The hunter" }
                 },
                 {
-                    content: "Kurna, w ogóle nie pamiętam, abym kupował jakieś bilety do parku rozrywki. Dzięki, te sobie zatrzymam, a spadanie w dół zaraz stanie się twoim nowym doświadczeniem.",
+                    content: "Oh come on, I'm a master of taking on wimps like you. First of all, turn this gun around because right now you're aiming at yourself. Then put some real bullets in it and tie your shoes. And then turn around, close your eyes and forget you even thought about this shitshow. Stop making a fool of yourself, get a new hobby, like collecting stamps or pottery, and just give up on going teen gangsta. And look here!",
                     character: cody
                 }
             ]
@@ -253,4 +253,3 @@ migration_data.each.with_index(1) do |level_data, i|
   find_or_create_task(params: level_data[:task], level_id: level.id)
   find_or_create_conversation(messages: level_data[:conversation][:messages], level_id: level.id)
 end
-
