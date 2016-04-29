@@ -50,7 +50,7 @@ class LevelController {
       this.handleSubmissionForm();
     });
 
-    this.buttons.inprogress = this.game.views.hollow.select('.inprogress');
+    this.buttons.inprogress = this.game.views.hollow.select('.button.inprogress');
   }
 
   handleSubmissionForm() {

@@ -882,7 +882,7 @@
 				<text transform="matrix(1 0 0 1 567.579 669.9393)" style="fill:#FFFFFF; font-size:63.3px;">VALIDATE</text>
 		</g>
 	</g>
-	<g class="inprogress">
+	<g class="button inprogress blocked">
 		<polygon style="fill:#A0A0A0;" points="798.9,686.2 507.2,686.2 503.3,683.1 794.9,611.5 798.9,614.6 	"/>
 		<rect x="503.3" y="611.5" style="fill:#C0C0C0;" width="291.7" height="71.6"/>
 		<g>
