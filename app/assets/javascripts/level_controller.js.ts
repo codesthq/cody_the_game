@@ -59,12 +59,13 @@ class LevelController {
     if (content === "") {
       alert("You can't submit empty answer");
     } else {
+      this.lockSubmission();
       this.game.apiClient.submitCode(this.level.id, content, (data) => {
-        this.lockSubmission();
         this.submission = data.submission;
         this.resetSubmissionTTL();
         setTimeout(() => { this.checkSubmissionStatus(); }, 500);
       }, () => {
+        this.unlockSubmission();
         alert("Can't submit content of submission");
       });
     }
