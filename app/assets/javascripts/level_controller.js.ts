@@ -60,8 +60,8 @@ class LevelController {
       alert("You can't submit empty answer");
     } else {
       this.game.apiClient.submitCode(this.level.id, content, (data) => {
-        this.submission = data.submission;
         this.lockSubmission();
+        this.submission = data.submission;
         this.resetSubmissionTTL();
         setTimeout(() => { this.checkSubmissionStatus(); }, 500);
       }, () => {
@@ -76,10 +76,9 @@ class LevelController {
       let status = this.submission.status;
 
       if (status === "pending") {
-        if (this.checkSubmissionTTL()) {
+        if (this.checkAndDecrementSubmissionTTL()) {
           setTimeout(() => { this.checkSubmissionStatus() }, 500);
         } else {
-          this.submission = null;
           this.unlockSubmission();
           alert("Can't finish your submission. Please try again.")
         }
@@ -93,7 +92,6 @@ class LevelController {
         });
       }
     }, () => {
-      this.submission = null;
       this.unlockSubmission();
       alert("Can't check status of submission")
     });
@@ -303,24 +301,24 @@ class LevelController {
     })
   }
 
-  showValidateButton(){
+  turnOnSubmissionButton(){
     this.show(this.buttons.validate);
     this.hide(this.buttons.inprogress);
   }
 
-  showInProgressButton(){
+  turnOffSubmissionButton(){
     this.hide(this.buttons.validate);
     this.show(this.buttons.inprogress);
   }
 
   lockSubmission() {
     this.lockEditor();
-    this.showInProgressButton();
+    this.turnOffSubmissionButton();
   }
 
   unlockSubmission() {
     this.unlockEditor();
-    this.showValidateButton();
+    this.turnOnSubmissionButton();
   }
 
   isLocked() {
@@ -335,7 +333,7 @@ class LevelController {
    this.editor.setOption("readOnly", false);
   }
 
-  checkSubmissionTTL() {
+  checkAndDecrementSubmissionTTL() {
     return this.submission_ttl-- > 0;
   }
 
