@@ -6,15 +6,16 @@ class LevelUpdater
   end
 
   def update!
-    if perform_update?
-      game_session.update current_level: succeeding_level
-    end
+    game_session.update current_level: succeeding_level if perform_update?
   end
 
   private
 
   def perform_update?
-    level_authorized? && submission_succeed? && succeeding_level?
+    level_authorized? &&
+      submission_succeed? &&
+      succeeding_level? &&
+      next_level_available?
   end
 
   def level_authorized?
@@ -27,6 +28,10 @@ class LevelUpdater
 
   def succeeding_level?
     succeeding_level > game_session.current_level
+  end
+
+  def next_level_available?
+    succeeding_level <= maximum_level.position
   end
 
   def level_authorizer
@@ -47,5 +52,9 @@ class LevelUpdater
 
   def level
     @level ||= submission.level
+  end
+
+  def maximum_level
+    @maximum_level = Level.last
   end
 end
