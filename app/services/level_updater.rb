@@ -31,7 +31,7 @@ class LevelUpdater
   end
 
   def next_level_available?
-    succeeding_level <= maximum_level.position
+    succeeding_level <= Level.last.position
   end
 
   def level_authorizer
@@ -52,9 +52,5 @@ class LevelUpdater
 
   def level
     @level ||= submission.level
-  end
-
-  def maximum_level
-    @maximum_level = Level.last
   end
 end
