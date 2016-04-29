@@ -2490,9 +2490,8 @@
 
 </g>
 
-<g id="intorduction" transform="matrix(1 0 0 1 850 322)">
-	<foreignObject width="500px" height="200px"
-								 requiredExtensions="http://www.w3.org/1999/xhtml">
+<g id="introduction" transform="matrix(1 0 0 1 850 322)">
+	<foreignObject width="500px" height="200px" xmlns="http://www.w3.org/1999/xhtml">
 		<body xmlns="http://www.w3.org/1999/xhtml">
 			<div id="intro-text">
 				<p>Solve Ruby puzzles and help Cody get to the top of the tree</p>
