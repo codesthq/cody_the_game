@@ -1,6 +1,6 @@
-<svg id="hollow" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
-	 height="100%" viewBox="0 0 1266 715.5" preserveAspectRatio="xMidYMid slice">
-	<g>
+<svg style="background-color: #000;" id="hollow" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+	 height="100%" viewBox="0 0 1266 715.5" preserveAspectRatio="xMidYMid meet">
+	<!-- <g>
 		<rect x="-9.6" y="-0.3" style="fill:#1D150D;" width="1283.9" height="716.2"/>
 		<polygon style="fill:#19130E;" points="256.7,232.1 -9.6,-0.3 -9.2,609.4 	"/>
 		<polygon style="fill:#20160E;" points="397.9,2.1 256.7,232.1 -9.6,-0.3 	"/>
@@ -33,7 +33,7 @@
 		<polygon style="fill:#2C1F13;" points="1135.9,453.5 1273.1,378.7 1158.6,161.4 	"/>
 		<polygon style="fill:#271D12;" points="1197.1,625 1273.1,378.7 1135.9,453.5 	"/>
 		<polygon style="fill:#322619;" points="1274.3,715.9 1197.1,625 1135.9,717.7 	"/>
-	</g>
+	</g> -->
 
 	<g class="sqrl">
 		<g>
@@ -901,11 +901,12 @@
 		<text  class="bulb-matrix" transform="matrix(1 0 0 1 380 338)"></text>
 	</g>
 
-	<foreignObject id="submission" width="500" height="100" transform="matrix(1,0,0,1,380,300)">
-		<body xmlns="http://www.w3.org/1999/xhtml">
-			<textarea id="content"></textarea>
-		</body>
-	</foreignObject>
+
+	<g id="submission" width="558" height="300" transform="matrix(1,0,0,1,380,300)">
+		<foreignObject width="558" height="300" >
+			<textarea xmlns="http://www.w3.org/2000/xmlns/" id="content" style="width: 500px; height: 300px;"></textarea>
+		</foreignObject>
+	</g>
 
 
 </svg>
