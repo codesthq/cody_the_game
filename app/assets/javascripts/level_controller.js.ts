@@ -12,9 +12,10 @@ class LevelController {
   buttons:         any = {};
   ui:              any = {};
   messages:        { [character_id: number] : Array<string> } = {};
-  editor:          CodeMirror.EditorFromTextArea;
+  editor:          any = document.getElementById("content");
   submission:      any = {};
   submission_ttl:  number = 60;
+
 
   constructor(game: GameController, position: number) {
     this.game     = game;
@@ -54,7 +55,7 @@ class LevelController {
   }
 
   handleSubmissionForm() {
-    let content = this.editor.getDoc().getValue();
+    let content = this.editor.value;
 
     if (content === "") {
       alert("You can't submit empty answer");
@@ -344,26 +345,17 @@ class LevelController {
 
   private showSubmissionForm() {
     $("#submission").show();
-    this.addEditor();
     this.showQuestionContent();
   }
 
   private hideSubmissionForm() {
     $("#submission").hide();
-    this.removeEditor();
+    this.clearEditor();
     this.getBulb(0).select('foreignObject').remove();
   }
 
-  private removeEditor() {
-    this.editor.toTextArea();
-    this.editor.getTextArea().value = "";
-
-    this.editor = null;
+  private clearEditor() {
+    this.editor.value = "";
   }
 
-  private addEditor() {
-    this.editor = CodeMirror.fromTextArea(<HTMLTextAreaElement>document.getElementById("content"), {
-      lineNumbers: true
-    });
-  }
 };
