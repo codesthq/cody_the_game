@@ -2481,20 +2481,20 @@
 	<polygon fill="#FF6B03" points="572.2,797.5 582.4,792.7 574.9,798.2 	"/>
 
 	<g class="button play">
-		<polygon fill="#EE4001" points="1223.3,763.7 854.7,763.7 849.7,759.7 1118.3,669.2 1223.3,673.2 		"/>
-		<rect x="849.7" y="669.2" fill="#FF6B03" width="368.6" height="90.5"/>
+		<polygon fill="#EE4001" points="1123.3,763.7 754.7,763.7 749.7,759.7 1018.3,669.2 1123.3,673.2 		"/>
+		<rect x="749.7" y="669.2" fill="#FF6B03" width="368.6" height="90.5"/>
 		<g>
-			<text transform="matrix(1 0 0 1 972 743.1104)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
+			<text transform="matrix(1 0 0 1 840 744)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
 		</g>
 	</g>
 
 </g>
 
-<g id="introduction" transform="matrix(1 0 0 1 850 322)">
-	<foreignObject width="500px" height="200px" xmlns="http://www.w3.org/1999/xhtml">
+<g id="introduction" transform="matrix(1 0 0 1 750 350)">
+	<foreignObject width="700px" height="200px" xmlns="http://www.w3.org/1999/xhtml">
 		<body xmlns="http://www.w3.org/1999/xhtml">
 			<div id="intro-text">
-				<p>Solve Ruby puzzles and help Cody get to the top of the tree</p>
+				<p>Solve Ruby puzzles and help Cody get to the top of the tree!</p>
 			</div>
 		</body>
 	</foreignObject>

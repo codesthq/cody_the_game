@@ -871,29 +871,29 @@
 		<rect x="503.3" y="611.5" style="fill:#F36D21;" width="291.7" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 605.9471 669.9393)" style="fill:#FFFFFF; font-size:63.3px;">PLAY</text>
+				<text transform="matrix(1 0 0 1 578 669)" style="fill:#FFFFFF; font-size:63.3px;">PLAY</text>
 		</g>
 	</g>
 	<g class="button validate">
-		<polygon style="fill:#ED4524;" points="798.9,686.2 507.2,686.2 503.3,683.1 794.9,611.5 798.9,614.6 	"/>
-		<rect x="503.3" y="611.5" style="fill:#F36D21;" width="291.7" height="71.6"/>
+		<polygon style="fill:#ED4524;" points="824,686.2 482,686.2 482,614 794.9,611.5 824,614.6"/>
+		<rect x="480" y="611.5" style="fill:#F36D21;" width="340" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 567.579 669.9393)" style="fill:#FFFFFF; font-size:63.3px;">VALIDATE</text>
+				<text transform="matrix(1 0 0 1 505 669)" style="fill:#FFFFFF; font-size:63.3px;">VALIDATE</text>
 		</g>
 	</g>
 	<g class="button inprogress blocked">
-		<polygon style="fill:#A0A0A0;" points="798.9,686.2 507.2,686.2 503.3,683.1 794.9,611.5 798.9,614.6 	"/>
-		<rect x="503.3" y="611.5" style="fill:#C0C0C0;" width="291.7" height="71.6"/>
+		<polygon style="fill:#A0A0A0;" points="824,686.2 482,686.2 482,614 794.9,611.5 824,614.6"/>
+		<rect x="480" y="611.5" style="fill:#C0C0C0;" width="340" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 567.579 669.9393)" style="fill:#FFFFFF; font-size:63.3px;">WAITING...</text>
+				<text transform="matrix(1 0 0 1 495 669)" style="fill:#FFFFFF; font-size:63.3px;">WAITING...</text>
 		</g>
 	</g>
 
 	<g id="bulb0" class="bulb">
 		<polygon style="fill:#F1ECE3;" points="938.5,156.9 938.5,64.9 373.4,64.9 373.4,285.1 938.5,285.1 938.5,203.1 987.9,180.9 "/>
-		<text  class="bulb-matrix" transform="matrix(1 0 0 1 380 80)"></text>
+		<text class="bulb-matrix" transform="matrix(1 0 0 1 380 80)"></text>
 	</g>
 
 	<g id="bulb1" class="bulb">
@@ -901,12 +901,10 @@
 		<text  class="bulb-matrix" transform="matrix(1 0 0 1 380 338)"></text>
 	</g>
 
-
-	<g id="submission" width="558" height="300" transform="matrix(1,0,0,1,380,300)">
-		<foreignObject width="558" height="300" >
-			<textarea xmlns="http://www.w3.org/2000/xmlns/" id="content" style="width: 500px; height: 300px;"></textarea>
+	<g id="submission" transform="matrix(1,0,0,1,373,300)">
+		<foreignObject width="566" height="280" >
+			<textarea xmlns="http://www.w3.org/2000/xmlns/" placeholder="Put your code here..." id="content" style="width: 546px; height: 260px;"></textarea>
 		</foreignObject>
 	</g>
-
 
 </svg>

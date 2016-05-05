@@ -293,7 +293,7 @@ class LevelController {
   showQuestionContent() {
     let questionContent = this.level.task.content;
 
-    let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><div class="pre-code">' + questionContent + '</div></div></div></body></foreignObject>');
+    let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><p class="pre-code">' + questionContent + '</p></div></div></body></foreignObject>');
     let bulb = this.getBulb(0);
 
     bulb.transform('t0,0')
