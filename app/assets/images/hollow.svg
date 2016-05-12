@@ -871,7 +871,7 @@
 		<rect x="503.3" y="611.5" style="fill:#F36D21;" width="291.7" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 578 669)" style="fill:#FFFFFF; font-size:63.3px;">PLAY</text>
+				<text transform="matrix(1 0 0 1 605 669)" style="fill:#FFFFFF; font-size:63.3px;">PLAY</text>
 		</g>
 	</g>
 	<g class="button validate">
@@ -879,7 +879,7 @@
 		<rect x="480" y="611.5" style="fill:#F36D21;" width="340" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 505 669)" style="fill:#FFFFFF; font-size:63.3px;">VALIDATE</text>
+				<text transform="matrix(1 0 0 1 560 669)" style="fill:#FFFFFF; font-size:63.3px;">VALIDATE</text>
 		</g>
 	</g>
 	<g class="button inprogress blocked">
@@ -887,7 +887,7 @@
 		<rect x="480" y="611.5" style="fill:#C0C0C0;" width="340" height="71.6"/>
 		<g>
 
-				<text transform="matrix(1 0 0 1 495 669)" style="fill:#FFFFFF; font-size:63.3px;">WAITING...</text>
+				<text transform="matrix(1 0 0 1 560 669)" style="fill:#FFFFFF; font-size:63.3px;">WAITING...</text>
 		</g>
 	</g>
 

@@ -1675,37 +1675,38 @@
 		</g>
 	</g>
 
-		<linearGradient id="sky_5_" gradientUnits="userSpaceOnUse" x1="-0.9999" y1="12678.4229" x2="1599.0001" y2="12678.4229" gradientTransform="matrix(1 0 0 -1 0 13128.748)">
+	<linearGradient id="sky_5_" gradientUnits="userSpaceOnUse" x1="-0.9999" y1="12678.4229" x2="1599.0001" y2="12678.4229" gradientTransform="matrix(1 0 0 -1 0 13128.748)">
 		<stop  offset="0" style="stop-color:#AEDBE0"/>
 		<stop  offset="1" style="stop-color:#8CC4D1"/>
 	</linearGradient>
 	<rect id="sky_1_" x="-1" y="-0.2" opacity="0.79" fill="url(#sky_5_)" width="1600" height="901.1"/>
 	<rect x="519.5" y="72.9" fill="none" width="580" height="136.6"/>
 
-		<text id="title" transform="matrix(1 0 0 1 541.6454 166.9834)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="72px">CODY  ON RAILS</text>
+	<text id="title" transform="matrix(1 0 0 1 541.6454 166.9834)" fill="#FFFFFF" font-size="72px">CODY  ON RAILS</text>
+
 	<g id="continue" class="button">
 		<rect x="487.3" y="241.9" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="237.8" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="249.4" fill="none" width="580" height="53.5"/>
-		<text transform="matrix(1 0 0 1 624 305)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">CONTINUE</text>
+		<text x="710" y="305" fill="#65C0C9" font-size="72px">CONTINUE</text>
 	</g>
 	<g id="newgame" class="button">
 		<rect x="487.3" y="348.9" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="345.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="358.8" fill="none" width="580" height="53.5"/>
-		<text transform="matrix(1 0 0 1 612 412)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">NEW GAME</text>
+		<text x="696" y="412" fill="#65C0C9" font-size="72px">NEW GAME</text>
 	</g>
-	<g id="ranking" class="button" visibility="hidden">
+	<g id="ranking" class="button" visibility="hidden1">
 		<rect x="487.3" y="458" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="453.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
-		<text transform="matrix(1 0 0 1 644 522.0635)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">RANKING</text>
+		<text x="712" y="522" fill="#65C0C9" font-size="72px">RANKING</text>
 	</g>
-	<g id="credits" class="button" visibility="hidden">
+	<g id="credits" class="button" visibility="hidden1">
 		<rect x="487.3" y="567.1" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="561.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="576.2" fill="none" width="580" height="53.5"/>
-		<text transform="matrix(1 0 0 1 660 629.1602)" fill="#65C0C9" font-family="'LeagueGothic-Regular'" font-size="72px">CREDITS</text>
+		<text x="720" y="629" fill="#65C0C9" font-size="72px">CREDITS</text>
 	</g>
 	<g id="tw" class="button"  visibility="hidden">
 		<circle fill="#FFFFFF" cx="880" cy="734.7" r="50"/>
