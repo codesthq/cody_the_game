@@ -35,14 +35,12 @@ text, tspan
   font-family: monospace
 
 .bulb-body
-  display: table
   width: 100%
   height: 100%
   max-width: 550px
 
   p
-    font-size: 1.45em
-    display: table-cell
+    font-size: 1.25em
     padding: 0 20px
     vertical-align: middle
     text-align: justify
@@ -131,10 +129,18 @@ svg
   display: none
   opacity: 0
 
-.scrollable-area
-  overflow-y: auto
-  overflow-x: hidden
+.scrollable-area-wrap
   height: 190px
+  width: 100%
+  overflow-y: auto
+
+.scrollable-area
+  height: 190px
+  display: table
+
+  .bulb-body
+    display: table-cell
+    vertical-align: middle
 
   pre
     white-space: pre-line

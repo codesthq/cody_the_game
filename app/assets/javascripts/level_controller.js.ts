@@ -274,7 +274,7 @@ class LevelController {
       let message = this.getNextMessageForCharacter(character_id);
       if (message) {
 
-        let p = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><p>' + message + '</p></div></body></foreignObject>')
+        let p = Snap.parse('<foreignObject width="552" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p>' + message + '</p></div></div></div></body></foreignObject>')
 
         bulb.append(p)
         bulb.select('foreignObject').attr({
@@ -293,7 +293,7 @@ class LevelController {
   showQuestionContent() {
     let questionContent = this.level.task.content;
 
-    let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="bulb-body"><div class="scrollable-area"><p class="pre-code">' + questionContent + '</p></div></div></body></foreignObject>');
+    let body = Snap.parse('<foreignObject width="600" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p class="pre-code">' + questionContent + '</p></div></div></div></body></foreignObject>');
     let bulb = this.getBulb(0);
 
     bulb.transform('t0,0')
