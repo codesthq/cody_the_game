@@ -8,6 +8,7 @@ class LevelController {
   last_position:   number;
   t:               any;
   sqrl:            any;
+  character:       any;
   bulbs:           Array<number> = [];
   buttons:         any = {};
   ui:              any = {};
@@ -56,10 +57,13 @@ class LevelController {
   }
 
   loadLevelCharacter(level: number) {
-    console.log(level)
+    if (this.game.views.hollow.select('g#character')) {
+      this.game.views.hollow.select('g#character').remove();
+    }
 
     Snap.load(this.game.asset_paths.characters[level], (f : any) => {
-      this.game.views.hollow.select('.character').append(f);
+      this.character = f.select('g#character')
+      this.game.views.hollow.select('.character-container').append(this.character);
     });
   }
 
@@ -179,6 +183,8 @@ class LevelController {
     this.showAndAnimate(this.ui, 500);
 
     this.sqrl.transform('t-500,0');
+    this.character.transform('t800,0')
+
     this.showBulbs();
     this.startConversation();
 
@@ -227,6 +233,10 @@ class LevelController {
     this.sqrl.animate({
       transform: 't0,0'
     }, 300, mina.easein);
+
+    this.character.animate({
+      transform: 't0,0'
+    }, 300, mina.easein);    
 
     for (let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
