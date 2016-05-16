@@ -36,6 +36,7 @@ class LevelController {
     });
 
     this.sqrl = this.game.views.hollow.select('.sqrl');
+    this.loadLevelCharacter(this.position);
 
     this.buttons.play = this.game.views.hollow.select('.button.play');
     this.buttons.play.click(() => {
@@ -52,6 +53,14 @@ class LevelController {
     });
 
     this.buttons.inprogress = this.game.views.hollow.select('.button.inprogress');
+  }
+
+  loadLevelCharacter(level: number) {
+    console.log(level)
+
+    Snap.load(this.game.asset_paths.characters[level], (f : any) => {
+      this.game.views.hollow.select('.character').append(f);
+    });
   }
 
   handleSubmissionForm() {

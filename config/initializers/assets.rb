@@ -12,4 +12,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 # Rails.application.config.assets.precompile += %w()
 
-Rails.application.config.assets.precompile += %w(cover.png)
+Rails.application.config.assets.precompile += %w(cover.png characters\*.svg)
