@@ -343,15 +343,15 @@ class LevelController {
   }
 
   isLocked() {
-   return this.editor.getOption("readOnly");
+   return this.editor.disabled;
   }
 
   lockEditor() {
-   this.editor.setOption("readOnly", true);
+   this.editor.disabled = true;
   }
 
   unlockEditor() {
-   this.editor.setOption("readOnly", false);
+   this.editor.disabled = false;
   }
 
   checkAndDecrementSubmissionTTL() {
