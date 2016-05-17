@@ -49,9 +49,13 @@
       %rect{ height: "5.5", style: "fill:#D44227;", width: "32.7", x: "23.8", y: "33.3"}
 
 
-#modal.overlay
+#won-modal.overlay.hidden
   .modal
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    = inline_svg "won.min.svg"
+
+#failed-modal.overlay.hidden
+  .modal
+    = inline_svg "failed.min.svg"
 
 :javascript
   var assets = {

@@ -49,8 +49,11 @@ text, tspan
       font-size: 1em
 
 #content
-  border: none
-  padding: 10px
+  border: 2px solid #271B0E
+  padding: 8px
+  font-size: 1em
+  color: #F1ECE3
+  background-color: #150E06
 
 #ui
   position: absolute
@@ -80,6 +83,9 @@ svg
 
   text
     font-family: 'Bebas Neue', sans-serif
+
+.headline
+  font-family: 'Bebas Neue', sans-serif
 
 .button.blocked
   cursor: auto
@@ -154,12 +160,12 @@ svg
   right: 0
   bottom: 0
   left: 0
-  background-color: rgba(0,0,0,.5)
+  background: transparent asset_url('bg-hollow.png') no-repeat scroll 50% 50%
+  background-size: 100% 100%
 
   .modal
-    background-color: #fff
-    width: 50%
-    height: 50%
+    width: 80%
+    height: 80%
     position: absolute
     top: 50%
     left: 50%

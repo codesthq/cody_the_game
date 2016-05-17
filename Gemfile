@@ -19,6 +19,7 @@ gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'redis-namespace'
 gem 'airbrake', '~> 4'
+gem 'inline_svg'
 
 group :development, :test do
   gem 'byebug'
