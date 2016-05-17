@@ -1696,18 +1696,18 @@
 		<rect x="519.5" y="358.8" fill="none" width="580" height="53.5"/>
 		<text x="696" y="412" fill="#65C0C9" font-size="72px">NEW GAME</text>
 	</g>
-	<g id="ranking" class="button" visibility="hidden1">
+	<g id="credits" class="button" visibility="">
+		<rect x="487.3" y="458" fill="#6CACB7" width="653.5" height="82.6"/>
+		<rect x="482.8" y="453.7" fill="#FFFFFF" width="653.5" height="82.6"/>
+		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
+		<text x="720" y="522" fill="#65C0C9" font-size="72px">CREDITS</text>
+	</g>
+	<!-- <g id="ranking" class="button" visibility="hidden">
 		<rect x="487.3" y="458" fill="#6CACB7" width="653.5" height="82.6"/>
 		<rect x="482.8" y="453.7" fill="#FFFFFF" width="653.5" height="82.6"/>
 		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
 		<text x="712" y="522" fill="#65C0C9" font-size="72px">RANKING</text>
-	</g>
-	<g id="credits" class="button" visibility="hidden1">
-		<rect x="487.3" y="567.1" fill="#6CACB7" width="653.5" height="82.6"/>
-		<rect x="482.8" y="561.7" fill="#FFFFFF" width="653.5" height="82.6"/>
-		<rect x="519.5" y="576.2" fill="none" width="580" height="53.5"/>
-		<text x="720" y="629" fill="#65C0C9" font-size="72px">CREDITS</text>
-	</g>
+	</g>	 -->
 	<g id="tw" class="button"  visibility="hidden">
 		<circle fill="#FFFFFF" cx="880" cy="734.7" r="50"/>
 		<g>

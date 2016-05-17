@@ -2483,9 +2483,7 @@
 	<g class="button play">
 		<polygon fill="#EE4001" points="1123.3,763.7 754.7,763.7 749.7,759.7 1018.3,669.2 1123.3,673.2 		"/>
 		<rect x="749.7" y="669.2" fill="#FF6B03" width="368.6" height="90.5"/>
-		<g>
-			<text transform="matrix(1 0 0 1 840 744)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
-		</g>
+		<text transform="matrix(1 0 0 1 874 744)" fill="#FFFFFF" font-family="'LeagueGothic-Regular'" font-size="80px">PLAY</text>
 	</g>
 
 </g>
@@ -2494,7 +2492,7 @@
 	<foreignObject width="700px" height="200px" xmlns="http://www.w3.org/1999/xhtml">
 		<body xmlns="http://www.w3.org/1999/xhtml">
 			<div id="intro-text">
-				<p>Solve Ruby puzzles and help Cody get to the top of the tree!</p>
+				<p class="headline">Solve Ruby puzzles and help Cody get to the top of the tree!</p>
 			</div>
 		</body>
 	</foreignObject>
