@@ -37,7 +37,6 @@ class LevelController {
     });
 
     this.sqrl = this.game.views.hollow.select('.sqrl');
-    this.loadLevelCharacter(this.position);
 
     this.buttons.play = this.game.views.hollow.select('.button.play');
     this.buttons.play.click(() => {
@@ -54,10 +53,22 @@ class LevelController {
     });
 
     this.buttons.inprogress = this.game.views.hollow.select('.button.inprogress');
+    this.buttons.failed = Snap('#failed-modal .modal svg').select('.button.play-again');
+    this.buttons.failed.click(() => {
+      this.hideFailedModal();
+    });
+
+    this.buttons.won = Snap('#won-modal .modal svg').select('.button.next-level');
+    this.buttons.won.click(() => {
+      this.hideWonModal();
+      this.exitLevel(() => {
+        this.changeLevel(this.position, this.enterLevel.bind(this));
+      });
+    });
   }
 
   loadLevelCharacter(level: number) {
-    if (this.game.views.hollow.select('g#character')) {
+    if (this.game.views.hollow.select('g#character') !=  null) {
       this.game.views.hollow.select('g#character').remove();
     }
 
@@ -99,12 +110,10 @@ class LevelController {
         }
       } else if (status === "failed") {
         this.unlockSubmission();
-        alert("FAILED!");
+        this.showFailedModal();
       } else if (status === "succeed") {
         this.unlockSubmission();
-        this.exitLevel(() => {
-          this.changeLevel(this.position, this.enterLevel.bind(this));
-        });
+        this.showWonModal();
       }
     }, () => {
       this.unlockSubmission();
@@ -135,12 +144,12 @@ class LevelController {
   }
 
   changeLevel(level : number, callback : () => any) {
+    this.hideSubmissionForm();
+
     let next_position = level + 1;
     if (next_position > this.last_position) {
       window.location.href = "/summary";
     }
-
-    this.hideSubmissionForm();
 
     var _timeout  = 3000;
     var _move = this.step * next_position;
@@ -173,7 +182,10 @@ class LevelController {
   initializeLevel() {
     window.location.hash = String(this.position);
     let levelId = this.game.levels[this.position].id;
+    this.loadLevelCharacter(this.position);
     this.loadLevelData(levelId);
+
+
   }
 
   enterLevel() {
@@ -280,6 +292,22 @@ class LevelController {
       bulb.transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
       bulb.select('foreignObject').remove();
     }
+  }
+
+  showFailedModal() {
+    $("#failed-modal").removeClass("hidden");
+  }
+
+  hideFailedModal() {
+    $("#failed-modal").addClass("hidden");
+  }
+
+  showWonModal() {
+    $("#won-modal").removeClass("hidden");
+  }
+
+  hideWonModal() {
+    $("#won-modal").addClass("hidden");
   }
 
   getBulb(bulb_id: number) {
