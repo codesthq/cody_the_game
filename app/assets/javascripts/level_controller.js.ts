@@ -25,6 +25,7 @@ class LevelController {
   }
 
   init() {
+    this.changeLevelAnimation(null);
     this.initializeLevel();
 
     this.ui = Snap('svg#ui');
@@ -151,8 +152,17 @@ class LevelController {
       window.location.href = "/summary";
     }
 
+    this.position++;
+    this.changeLevelAnimation(callback)
+    this.initializeLevel();
+
+
+  };
+
+  changeLevelAnimation(callback : () => any) {
     var _timeout  = 3000;
-    var _move = this.step * next_position;
+    var _move = this.step * this.position;
+
     this.game.layers.tree.animate({
       transform: 't0,'+ _move
     }, _timeout, () => {
@@ -174,9 +184,6 @@ class LevelController {
     }, _timeout, () => {
       this.game.layers.layer2.stop();
     }, mina.easeinout);
-
-    this.position++;
-    this.initializeLevel();
   };
 
   initializeLevel() {
