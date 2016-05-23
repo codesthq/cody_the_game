@@ -155,8 +155,6 @@ class LevelController {
     this.position++;
     this.changeLevelAnimation(callback)
     this.initializeLevel();
-
-
   };
 
   changeLevelAnimation(callback : () => any) {
@@ -191,8 +189,6 @@ class LevelController {
     let levelId = this.game.levels[this.position].id;
     this.loadLevelCharacter(this.position);
     this.loadLevelData(levelId);
-
-
   }
 
   enterLevel() {

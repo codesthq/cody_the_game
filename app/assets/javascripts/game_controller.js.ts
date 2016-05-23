@@ -102,23 +102,23 @@ class GameController {
       this.layers.tree   = this.snap.select('#layer1');
       this.layers.layer1 = this.snap.select('#layer2');
       this.layers.layer2 = this.snap.select('#layer3');
-    });
 
-    Snap.load(this.asset_paths.hollow, (f : any) => {
-      this.snap.append(f);
+      Snap.load(this.asset_paths.hollow, (f : any) => {
+        this.snap.append(f);
 
-      this.views.hollow = this.snap.select('svg#hollow');
-      this.views.hollow.attr({
-        width:      this.viewport.width,
-        height:     this.viewport.height,
-        visibility: 'hidden',
-        opacity:    0
+        this.views.hollow = this.snap.select('svg#hollow');
+        this.views.hollow.attr({
+          width:      this.viewport.width,
+          height:     this.viewport.height,
+          visibility: 'hidden',
+          opacity:    0
+        });
+
+        this.level = new LevelController(this, level);
+        this.level.init();
+
+        setTimeout(() => { this.level.enterLevel(); }, 500);
       });
-
-      this.level = new LevelController(this, level);
-      this.level.init();
-
-      setTimeout(() => { this.level.enterLevel(); }, 500);
     });
   };
 }
