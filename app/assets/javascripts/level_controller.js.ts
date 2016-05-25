@@ -283,15 +283,13 @@ class LevelController {
   showBulbs() {
     for(let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
-      bulb.transform('t0,-1000')//.select('text').attr('opacity', 0);
+      bulb.transform('t0,-1000');
     }
   }
 
   hideBulbs() {
     for(let i in this.bulbs) {
-      // let bulb:any = this.getBulb(i);
       this.getBulb(i).transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
-      // bulb.select('foreignObject').remove();
       $('#bulb' + i).find('.bulb-body').html('');
     }
   }
@@ -318,24 +316,14 @@ class LevelController {
 
   startConversation() {
     for(let i in this.bulbs) {
-      // let bulb:any = this.getBulb(i);
       let bulb:any = $('#bulb' + i).find('.bulb-body')
       let character_id = this.bulbs[i];
       let message = this.getNextMessageForCharacter(character_id);
 
-      // debugger
-
       if (message) {
-
-        // let p = Snap.parse('<div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p>' + message + '</p></div></div></div>')
         let p = '<p>' + message + '</p>';
 
-        // bulb.select('foreignObject').append(p)
         bulb.append(p);
-        // bulb.select('foreignObject').attr({
-        //   transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
-        // })
-
       }
     }
   }
@@ -347,17 +335,11 @@ class LevelController {
 
   showQuestionContent() {
     let questionContent = this.level.task.content;
-
-    // let body = Snap.parse('<div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p class="pre-code">' + questionContent + '</p></div></div></div>');
     let body = '<p class="pre-code">' + questionContent + '</p>';
     let bulb = $('#bulb' + 0).find('.bulb-body')
 
     this.getBulb(0).transform('t0,0')
-    // bulb.select('div.container').append(body)
     bulb.append(body);
-    // bulb.select('foreignObject').attr({
-    //   transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
-    // })
   }
 
   turnOnSubmissionButton(){
@@ -408,7 +390,6 @@ class LevelController {
   private hideSubmissionForm() {
     $("#submission").hide();
     this.clearEditor();
-    // this.getBulb(0).select('foreignObject').remove();
     $('#bulb0').find('.bulb-body').html('');
   }
 
