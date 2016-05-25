@@ -251,16 +251,14 @@ class LevelController {
 
     this.character.animate({
       transform: 't0,0'
-    }, 300, mina.easein);    
+    }, 300, mina.easein);
 
     for (let i in this.bulbs) {
       let bulb:any = this.getBulb(i);
 
       bulb.animate({
         transform: 't0,0'
-      }, 400, function () {
-        this.select('text').animate({ opacity: 1 }, 400);
-      }, mina.easein);
+      }, 400, function () { }, mina.easein);
     }
 
     setTimeout( () => { this.showAndAnimate(this.buttons.play, 300); }, 600);
@@ -291,9 +289,10 @@ class LevelController {
 
   hideBulbs() {
     for(let i in this.bulbs) {
-      let bulb:any = this.getBulb(i);
-      bulb.transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
-      bulb.select('foreignObject').remove();
+      // let bulb:any = this.getBulb(i);
+      this.getBulb(i).transform('t0,-1000').animate({ transform: 't0,-1000' }, 200);
+      // bulb.select('foreignObject').remove();
+      $('#bulb' + i).find('.bulb-body').html('');
     }
   }
 
@@ -319,17 +318,23 @@ class LevelController {
 
   startConversation() {
     for(let i in this.bulbs) {
-      let bulb:any = this.getBulb(i);
+      // let bulb:any = this.getBulb(i);
+      let bulb:any = $('#bulb' + i).find('.bulb-body')
       let character_id = this.bulbs[i];
       let message = this.getNextMessageForCharacter(character_id);
+
+      // debugger
+
       if (message) {
 
-        let p = Snap.parse('<foreignObject width="552" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p>' + message + '</p></div></div></div></body></foreignObject>')
+        // let p = Snap.parse('<div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p>' + message + '</p></div></div></div>')
+        let p = '<p>' + message + '</p>';
 
-        bulb.append(p)
-        bulb.select('foreignObject').attr({
-          transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
-        })
+        // bulb.select('foreignObject').append(p)
+        bulb.append(p);
+        // bulb.select('foreignObject').attr({
+        //   transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
+        // })
 
       }
     }
@@ -343,14 +348,16 @@ class LevelController {
   showQuestionContent() {
     let questionContent = this.level.task.content;
 
-    let body = Snap.parse('<foreignObject width="552" height="190"><body xmlns="http://www.w3.org/1999/xhtml"><div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p class="pre-code">' + questionContent + '</p></div></div></div></body></foreignObject>');
-    let bulb = this.getBulb(0);
+    // let body = Snap.parse('<div class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"><p class="pre-code">' + questionContent + '</p></div></div></div>');
+    let body = '<p class="pre-code">' + questionContent + '</p>';
+    let bulb = $('#bulb' + 0).find('.bulb-body')
 
-    bulb.transform('t0,0')
-    bulb.append(body)
-    bulb.select('foreignObject').attr({
-      transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
-    })
+    this.getBulb(0).transform('t0,0')
+    // bulb.select('div.container').append(body)
+    bulb.append(body);
+    // bulb.select('foreignObject').attr({
+    //   transform: 'translate('+ bulb.select('text.bulb-matrix').transform().string +')'
+    // })
   }
 
   turnOnSubmissionButton(){
@@ -401,7 +408,8 @@ class LevelController {
   private hideSubmissionForm() {
     $("#submission").hide();
     this.clearEditor();
-    this.getBulb(0).select('foreignObject').remove();
+    // this.getBulb(0).select('foreignObject').remove();
+    $('#bulb0').find('.bulb-body').html('');
   }
 
   private clearEditor() {
