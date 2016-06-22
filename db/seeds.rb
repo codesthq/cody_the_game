@@ -51,21 +51,8 @@ migration_data = [
             ]
         },
         task: {
-            content: <<-CODE.strip_heredoc,
-              Write such a code that allows to use ~:foo syntax in 'case' statement like this:
-
-              o = ...
-              case o
-                when ~:new  then puts "o responds to :new method"
-                when ~:size then puts "o responds to :size method"
-              end
-
-              # for o = [] expected output is  "o responds to :size method"
-              # for o = String expected output is  "o responds to :new method"
-
-              Your code should work with any king of object.
-            CODE
-            points: 2, start_code: "What do you think, hmm?", test_class: "Challenge::Case"
+            content: "Write a program which prints 'Hello World!' on the screen.",
+            points: 4, test_class: "Challenge::HelloWorld"
         }
     },
     {
@@ -85,8 +72,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Writing ordinary if statement is boring. Implement this funny looking conditional statement.\n\n(1 == 1).--> { puts 'true' } { puts 'false' }\n# should print 'true'\n (0 >= 1).--> { puts 'true' } { puts 'false' }\n # should print 'false'\n (0 >= 1).--> { puts 'true' }\n # should do nothing",
-            points: 1, test_class: "Challenge::ConditionalStatement"
+            content: "Write a method called format_number which converts given integer number to string like this:\n\nformat_number(1234)    #=> '1_234'\nformat_number(-1234)   #=> '-1_234'\nformat_number(134567)  #=> '134_567'\nformat_number(49)      #=> '49'",
+            points: 1, start_code: "def setup; puts 'hehe'; end", test_class: "Challenge::FormatNumber"
         }
     },
     {
@@ -106,8 +93,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Implement class Squirrel in a way below API will be supported.\n\nsquirrel = Squirrel.new\n squirrel.fight do\n jump\n kick\n punch\n jump\n end\n squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']",
-            points: 2, test_class: "Challenge::Dsl"
+            content: "I removed find_all method from Array class!\nImplement your own Array#find_all method so for example: [1, 2, 3, 4].find_all { |e| e > 2 }  would return [3, 4].",
+            points: 3, test_class: "Challenge::FindAll"
         }
     },
     {
@@ -127,8 +114,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "I removed find_all method from Array class!\nImplement your own Array#find_all method so for example: [1, 2, 3, 4].find_all { |e| e > 2 }  would return [3, 4].",
-            points: 3, test_class: "Challenge::FindAll"
+            content: "I removed % operator for integer numbers!\nRe-implement it in a way following code will work properly:\n\n10 % 3 #=> 1\n23 % 0 # raises ZeroDivisionError error\n\nDon't worry about negative numbers. I don't care about them.",
+            points: 2, test_class: "Challenge::Modulo"
         }
     },
     {
@@ -148,8 +135,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a program which prints 'Hello World!' on the screen.",
-            points: 4, test_class: "Challenge::HelloWorld"
+            content: "Implement class Squirrel in a way below API will be supported.\n\nsquirrel = Squirrel.new\n squirrel.fight do\n jump\n kick\n punch\n jump\n end\n squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']",
+            points: 2, test_class: "Challenge::Dsl"
         }
     },
     {
@@ -169,8 +156,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a method called format_number which converts given integer number to string like this:\n\nformat_number(1234)    #=> '1_234'\nformat_number(-1234)   #=> '-1_234'\nformat_number(134567)  #=> '134_567'\nformat_number(49)      #=> '49'",
-            points: 1, start_code: "def setup; puts 'hehe'; end", test_class: "Challenge::FormatNumber"
+            content: "Here is the funny method I wrote once:\n\ndef ruby_love\nWe ♥ Ruby! What about you?\nend\n\n This method should return 'I ♥ Ruby too!' string. You can't change ruby_love method at all.",
+            points: 6, test_class: "Challenge::RubyLove"
         }
     },
     {
@@ -190,8 +177,21 @@ migration_data = [
             ]
         },
         task: {
-            content: "I removed % operator for integer numbers!\nRe-implement it in a way following code will work properly:\n\n10 % 3 #=> 1\n23 % 0 # raises ZeroDivisionError error\n\nDon't worry about negative numbers. I don't care about them.",
-            points: 2, test_class: "Challenge::Modulo"
+            content: <<-CODE.strip_heredoc,
+              Write such a code that allows to use ~:foo syntax in 'case' statement like this:
+
+              o = ...
+              case o
+                when ~:new  then puts "o responds to :new method"
+                when ~:size then puts "o responds to :size method"
+              end
+
+              # for o = [] expected output is  "o responds to :size method"
+              # for o = String expected output is  "o responds to :new method"
+
+              Your code should work with any king of object.
+            CODE
+            points: 2, start_code: "What do you think, hmm?", test_class: "Challenge::Case"
         }
     },
     {
@@ -239,8 +239,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a program which prints sentence <strong><i>Ruby was released in 1995!</i></strong> on screen using only following characters [a-zA-Z.&#92;n ] (small & big letters, dot, space and new line)",
-            points: 8, test_class: "Challenge::RubyWasReleased"
+            content: "Writing ordinary if statement is boring. Implement this funny looking conditional statement.\n\n(1 == 1).--> { puts 'true' } { puts 'false' }\n# should print 'true'\n (0 >= 1).--> { puts 'true' } { puts 'false' }\n # should print 'false'\n (0 >= 1).--> { puts 'true' }\n # should do nothing",
+            points: 1, test_class: "Challenge::ConditionalStatement"
         }
     },
     {
@@ -260,8 +260,8 @@ migration_data = [
             ]
         },
         task: {
-            content: "Here is the funny method I wrote once:\n\ndef ruby_love\nWe ♥ Ruby! What about you?\nend\n\n This method should return 'I ♥ Ruby too!' string. You can't change ruby_love method at all.",
-            points: 6, test_class: "Challenge::RubyLove"
+            content: "Write a program which prints sentence <strong><i>Ruby was released in 1995!</i></strong> on screen using only following characters [a-zA-Z.&#92;n ] (small & big letters, dot, space and new line)",
+            points: 8, test_class: "Challenge::RubyWasReleased"
         }
     }
 ]
