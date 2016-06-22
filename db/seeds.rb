@@ -51,7 +51,9 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a program which prints 'Hello World!' on the screen.",
+            content: <<-CODE.strip_heredoc,
+              Write a program which prints 'Hello World!' on the screen.
+            CODE
             points: 4, test_class: "Challenge::HelloWorld"
         }
     },
@@ -72,7 +74,14 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a method called format_number which converts given integer number to string like this:\n\nformat_number(1234)    #=> '1_234'\nformat_number(-1234)   #=> '-1_234'\nformat_number(134567)  #=> '134_567'\nformat_number(49)      #=> '49'",
+            content: <<-CODE.strip_heredoc,
+              Write a method called format_number which converts given integer number to string like this:
+
+              format_number(1234)    #=> '1_234'
+              format_number(-1234)   #=> '-1_234'
+              format_number(134567)  #=> '134_567'
+              format_number(49)      #=> '49'
+            CODE
             points: 1, start_code: "def setup; puts 'hehe'; end", test_class: "Challenge::FormatNumber"
         }
     },
@@ -93,7 +102,12 @@ migration_data = [
             ]
         },
         task: {
-            content: "I removed find_all method from Array class!\nImplement your own Array#find_all method so for example: [1, 2, 3, 4].find_all { |e| e > 2 }  would return [3, 4].",
+            content: <<-CODE.strip_heredoc,
+              I removed find_all method from Array class!
+              Implement your own Array#find_all method so for example:
+
+              [1, 2, 3, 4].find_all { |e| e > 2 } # would return [3, 4].
+            CODE
             points: 3, test_class: "Challenge::FindAll"
         }
     },
@@ -114,7 +128,15 @@ migration_data = [
             ]
         },
         task: {
-            content: "I removed % operator for integer numbers!\nRe-implement it in a way following code will work properly:\n\n10 % 3 #=> 1\n23 % 0 # raises ZeroDivisionError error\n\nDon't worry about negative numbers. I don't care about them.",
+            content: <<-CODE.strip_heredoc,
+              I removed % operator for integer numbers!
+              Re-implement it in a way following code will work properly:
+
+              10 % 3 #=> 1
+              23 % 0 # raises ZeroDivisionError error
+
+              Don't worry about negative numbers. I don't care about them.
+            CODE
             points: 2, test_class: "Challenge::Modulo"
         }
     },
@@ -135,7 +157,20 @@ migration_data = [
             ]
         },
         task: {
-            content: "Implement class Squirrel in a way below API will be supported.\n\nsquirrel = Squirrel.new\n squirrel.fight do\n jump\n kick\n punch\n jump\n end\n squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']",
+
+            content: <<-CODE.strip_heredoc,
+              Implement class Squirrel in a way below API will be supported.
+
+              squirrel = Squirrel.new
+              squirrel.fight do
+                jump
+                kick
+                punch
+                jump
+              end
+
+              squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']
+            CODE
             points: 2, test_class: "Challenge::Dsl"
         }
     },
@@ -156,7 +191,15 @@ migration_data = [
             ]
         },
         task: {
-            content: "Here is the funny method I wrote once:\n\ndef ruby_love\nWe ♥ Ruby! What about you?\nend\n\n This method should return 'I ♥ Ruby too!' string. You can't change ruby_love method at all.",
+            content: <<-CODE.strip_heredoc,
+            Here is the funny method I wrote once:
+
+            def ruby_love
+              We ♥ Ruby! What about you?
+            end
+
+            This method should return 'I ♥ Ruby too!' string. You can't change ruby_love method at all.
+            CODE
             points: 6, test_class: "Challenge::RubyLove"
         }
     },
@@ -217,6 +260,7 @@ migration_data = [
 
               object = Object.new
               change_object(object)
+
               object.size == 0 # should return 'Hello World!'
             CODE
             points: 5, start_code: "Just ketchup", test_class: "Challenge::OperatorChange"
@@ -239,7 +283,16 @@ migration_data = [
             ]
         },
         task: {
-            content: "Writing ordinary if statement is boring. Implement this funny looking conditional statement.\n\n(1 == 1).--> { puts 'true' } { puts 'false' }\n# should print 'true'\n (0 >= 1).--> { puts 'true' } { puts 'false' }\n # should print 'false'\n (0 >= 1).--> { puts 'true' }\n # should do nothing",
+            content: <<-CODE.strip_heredoc,
+              Writing ordinary if statement is boring. Implement this funny looking conditional statement.
+
+              (1 == 1).--> { puts 'true' } { puts 'false' }
+              # should print 'true'
+              (0 >= 1).--> { puts 'true' } { puts 'false' }
+              # should print 'false'
+              (0 >= 1).--> { puts 'true' }
+              # should do nothing
+            CODE
             points: 1, test_class: "Challenge::ConditionalStatement"
         }
     },
@@ -260,7 +313,9 @@ migration_data = [
             ]
         },
         task: {
-            content: "Write a program which prints sentence <strong><i>Ruby was released in 1995!</i></strong> on screen using only following characters [a-zA-Z.&#92;n ] (small & big letters, dot, space and new line)",
+            content: <<-CODE.strip_heredoc,
+              Write a program which prints sentence <strong><i>Ruby was released in 1995!</i></strong> on screen using only following characters [a-zA-Z.&#92;n ] (small & big letters, dot, space and new line)
+            CODE
             points: 8, test_class: "Challenge::RubyWasReleased"
         }
     }
