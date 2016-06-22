@@ -51,7 +51,20 @@ migration_data = [
             ]
         },
         task: {
-            content: "I have a funny case for you!\nWrite such a code that allows to use ~:foo syntax in 'case' statement like this:\n\nany_object = []\ncase any_object\nwhen ~:foo\n# any_object responds to :foo method\nwhen ~:size\n# any_object responds to :size method\nelse\nend",
+            content: <<-CODE.strip_heredoc,
+              Write such a code that allows to use ~:foo syntax in 'case' statement like this:
+
+              o = ...
+              case o
+                when ~:new  then puts "o responds to :new method"
+                when ~:size then puts "o responds to :size method"
+              end
+
+              # for o = [] expected output is  "o responds to :size method"
+              # for o = String expected output is  "o responds to :new method"
+
+              Your code should work with any king of object.
+            CODE
             points: 2, start_code: "What do you think, hmm?", test_class: "Challenge::Case"
         }
     },
@@ -198,7 +211,14 @@ migration_data = [
             ]
         },
         task: {
-            content: "Implement a method 'change_object' in such a way that in following code:\n\nobject = Object.new\nchange_object(object)\n\ndef empty?(o)\no.size == 0\nend\n\nempty?(o)\n\ncalling empty?(o) would return 'Hello World!' string.",
+            content: <<-CODE.strip_heredoc,
+              Implement a method 'change_object' in such a way that
+              object.size == 0 will return 'Hello World!' string.
+
+              object = Object.new
+              change_object(object)
+              object.size == 0 # should return 'Hello World!'
+            CODE
             points: 5, start_code: "Just ketchup", test_class: "Challenge::OperatorChange"
         }
     },
