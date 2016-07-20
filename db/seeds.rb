@@ -13,8 +13,9 @@ end
 
 def find_or_create_task(params:, level_id:)
   t = Task.find_or_create_by!(test_class: params[:test_class], level_id: level_id) do |task|
-    task.content  = params[:content]
-    task.points   = params[:points]
+    task.content    = params[:content]
+    task.points     = params[:points]
+    task.start_code = params[:start_code] if params[:start_code].present?
   end
   # puts "   Task #{t.id}) Level #{t.level_id}, #{t.test_class} updated / created!"
 end
@@ -82,7 +83,12 @@ migration_data = [
               format_number(134567)  #=> '134_567'
               format_number(49)      #=> '49'
             CODE
-            points: 1, start_code: "def setup; puts 'hehe'; end", test_class: "Challenge::FormatNumber"
+            points: 1, test_class: "Challenge::FormatNumber",
+            start_code: <<-CODE.strip_heredoc
+              def format_number(number)
+                # write your code here
+              end
+            CODE
         }
     },
     {
@@ -108,7 +114,14 @@ migration_data = [
 
               [1, 2, 3, 4].find_all { |e| e > 2 } # would return [3, 4].
             CODE
-            points: 3, test_class: "Challenge::FindAll"
+            points: 3, test_class: "Challenge::FindAll",
+            start_code: <<-CODE.strip_heredoc
+              class Array
+                def find_all
+                  # write your code here
+                end
+              end
+            CODE
         }
     },
     {
@@ -171,7 +184,18 @@ migration_data = [
 
               squirrel.actions #=> ['jump', 'kick', 'punch', 'jump']
             CODE
-            points: 2, test_class: "Challenge::Dsl"
+            points: 2, test_class: "Challenge::Dsl",
+            start_code: <<-CODE.strip_heredoc
+              class Squirrel
+                def fight
+                  # write your code here
+                end
+
+                def actions
+                  # write your code here
+                end
+              end
+            CODE
         }
     },
     {
@@ -234,7 +258,7 @@ migration_data = [
 
               Your code should work with any king of object.
             CODE
-            points: 2, start_code: "What do you think, hmm?", test_class: "Challenge::Case"
+            points: 2, test_class: "Challenge::Case"
         }
     },
     {
@@ -263,7 +287,12 @@ migration_data = [
 
               object.size == 0 # should return 'Hello World!'
             CODE
-            points: 5, start_code: "Just ketchup", test_class: "Challenge::OperatorChange"
+            points: 5, start_code: "Just ketchup", test_class: "Challenge::OperatorChange",
+            start_code: <<-CODE.strip_heredoc
+              def change_object(object)
+                # write your code here
+              end
+            CODE
         }
     },
     {
