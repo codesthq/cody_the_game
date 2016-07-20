@@ -336,7 +336,8 @@ class LevelController {
   showQuestionContent() {
     let questionContent = this.level.task.content;
     let body = '<p class="pre-code">' + questionContent + '</p>';
-    let bulb = $('#bulb' + 0).find('.bulb-body')
+    let bulb = $('#bulb' + 0).find('.bulb-body');
+    this.editor.value = this.level.task.start_code
 
     this.getBulb(0).transform('t0,0')
     bulb.append(body);
