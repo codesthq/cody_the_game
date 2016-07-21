@@ -42,7 +42,7 @@ migration_data = [
         conversation: {
             messages: [
                 {
-                    content:   "What was I talking about? Ah, right. The forest says some wimpy troll is trying to get to the top. So take that little backpack of yours and get back to coding in XHTML.Take two steps back, then straight down and you're there.",
+                    content:   "What was I talking about? Ah, right. The forest says some wimpy troll is trying to get to the top. So take that little backpack of yours and get back to coding in HTML. Take two steps back, then straight down and you're there.",
                     character: { name: "The rabid dog" }
                 },
                 {
@@ -150,7 +150,12 @@ migration_data = [
 
               Don't worry about negative numbers. I don't care about them.
             CODE
-            points: 2, test_class: "Challenge::Modulo"
+            points: 2, test_class: "Challenge::Modulo",
+            start_code: <<-CODE.strip_heredoc
+              class Integer
+                # write your code here
+              end
+            CODE
         }
     },
     {
