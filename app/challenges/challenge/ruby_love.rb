@@ -21,7 +21,7 @@ module Challenge
       CODE
 
       stdout = result.stdout
-      stdout.force_encoding("utf-8")
+      stdout.force_encoding("utf-8") if stdout.present?
       result.success? && stdout == "I ♥ Ruby too!\nOUR SUFFIX"
     end
   end
