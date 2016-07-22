@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   root to: "menu#show"
   get "/game", to: "game#show"
   get "/summary", to: "summary#show"
+  get "/credits", to: "credits#show"
 end

@@ -1,0 +1,15 @@
+#game-wrap
+  %svg{ id: "ui", width: "325.4px", height: "265.7px", viewbox: "0 0 325.4 265.7", opacity: 1, visibility: "visible" }
+    %g{ id: "menu-trigger", class: "ui button" }
+      %text{ style: "font-size:38px;", transform: "matrix(1 0 0 1 81.2697 39.7337)"} MENU
+      %rect{ height: "5.5", style: "fill:#F78F1E;", width: "32.7", x: "23.8", y: "14.5"}
+      %rect{ height: "5.5", style: "fill:#F15623;", width: "32.7", x: "23.8", y: "23.9"}
+      %rect{ height: "5.5", style: "fill:#D44227;", width: "32.7", x: "23.8", y: "33.3"}
+
+= embedded_svg "credits.svg"
+
+
+:javascript
+  $('g#menu-trigger').on('click', function() {
+    window.location.href = '/';
+  });
