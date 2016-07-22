@@ -9,7 +9,7 @@ module TaskRunner
     end
 
     def run_user_code(runner_code_template)
-      runner_code = runner_code_template.gsub("<INCLUDE_USER_CODE>", user_code)
+      runner_code = runner_code_template.gsub("<INCLUDE_USER_CODE>") { user_code }
 
       result = TrustedSandbox.run_code runner_code
 
