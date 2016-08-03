@@ -1855,7 +1855,7 @@
 
 	<g>
 		<foreignObject x="525" y="210" width="552" height="750">
-			<dl class="credits">
+			<dl class="credits" xmlns="http://www.w3.org/1999/xhtml">
 			  <dt>Production</dt>
 			  <dd>Codest / AdTaily sp. z o.o.</dd>
 
