@@ -1871,13 +1871,12 @@
 		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
 		<text x="720" y="522" fill="#65C0C9" font-size="72px">CREDITS</text>
 	</g>
-	<!-- <g id="ranking" class="button" visibility="hidden">
-		<rect x="487.3" y="458" fill="#6CACB7" width="653.5" width="653.5" height="82.6"/>
-		<rect x="482.8" y="453.7" fill="#FFFFFF" width="653.5" width="653.5" height="82.6"/>
-		<rect x="519.5" y="469.1" fill="none" width="580" height="53.5"/>
-		<text x="712" y="522" fill="#65C0C9" font-size="72px">RANKING</text>
-	</g>	 -->
-	<g id="tw" class="button"  visibility="hidden">
+	<g id="jobs" class="button" visibility="">
+		<rect x="487.3" y="616" fill="#824150" width="653.5" width="653.5" height="82.6"/>
+		<rect x="482.8" y="611.7" fill="#92495a" width="653.5" width="653.5" height="82.6"/>
+		<text x="646" y="680" fill="#ffffff" font-size="72px">WORK WITH US!</text>
+	</g>
+	<!-- <g id="tw" class="button"  visibility="hidden">
 		<circle fill="#FFFFFF" cx="880" cy="734.7" stroke-width="1" stroke="#FFFFFF" cx="880" cy="734.7" r="50"/>
 		<g>
 			<g>
@@ -1900,7 +1899,7 @@
 				</g>
 			</g>
 		</g>
-	</g>
+	</g> -->
 
 	<foreignObject x="525" y="860" width="552" height="20">
 		<p class="copy">Copyright &copy; 2016 – Made with passion by <a href="http://codesthq.com" target="_blank">Codest</a>
