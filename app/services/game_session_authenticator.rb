@@ -22,7 +22,7 @@ class GameSessionAuthenticator
   end
 
   def create_game_session
-    GameSession.create! cookie_key: SecureRandom.hex, ip: request.remote_ip
+    GameSession.create! cookie_key: SecureRandom.hex, ip: request.remote_ip, secure_token: SecureRandom.hex
   end
 
   def game_session_cookie
