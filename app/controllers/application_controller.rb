@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticator
-    GameSessionAuthenticator.new cookies
+    GameSessionAuthenticator.new cookies, request
   end
 end

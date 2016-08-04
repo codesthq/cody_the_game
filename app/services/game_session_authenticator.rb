@@ -1,8 +1,9 @@
 class GameSessionAuthenticator
-  attr_reader :cookies
+  attr_reader :cookies, :request
 
-  def initialize(cookies)
+  def initialize(cookies, request)
     @cookies = cookies
+    @request = request
   end
 
   def authenticate_game_sassion
@@ -21,7 +22,7 @@ class GameSessionAuthenticator
   end
 
   def create_game_session
-    GameSession.create! cookie_key: SecureRandom.hex
+    GameSession.create! cookie_key: SecureRandom.hex, ip: request.remote_ip
   end
 
   def game_session_cookie
