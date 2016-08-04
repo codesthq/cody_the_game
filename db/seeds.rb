@@ -152,7 +152,7 @@ migration_data = [
             CODE
             points: 2, test_class: "Challenge::Modulo",
             start_code: <<-CODE.strip_heredoc
-              class Integer
+              class Fixnum
                 # write your code here
               end
             CODE
