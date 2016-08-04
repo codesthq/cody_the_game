@@ -879,7 +879,7 @@
 
 	<g id="submission" transform="matrix(1,0,0,1,373,300)">
 		<foreignObject width="566" height="280" >
-			<textarea spellcheck="false" xmlns="http://www.w3.org/2000/xmlns/" placeholder="Put your code here..." id="content" style="width: 546px; height: 260px;"></textarea>
+			<textarea spellcheck="false" xmlns="http://www.w3.org/1999/xhtml" placeholder="Put your code here..." id="content" style="width: 546px; height: 260px;"></textarea>
 		</foreignObject>
 	</g>
 

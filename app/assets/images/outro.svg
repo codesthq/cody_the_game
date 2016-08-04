@@ -4280,12 +4280,12 @@
 
 
 <g id="back" class="button">
-	<rect x="630" y="709.5" fill="#6DACB7" width="360" stroke-width="1" stroke="#6DACB7" width="360" height="53.5"/>
-	<rect x="630" y="705.5" fill="#FFFFFF" width="360" stroke-width="1" stroke="#FFFFFF" width="360" height="53.5"/>
-	<text transform="matrix(1 0 0 1 704 748)" fill="#66C0C9" font-family="'LeagueGothic-Regular'" stroke-width="1" stroke="#66C0C9" font-family="'LeagueGothic-Regular'" font-size="46px">BACK TO MENU</text>
+	<rect x="630" y="759.5" fill="#6DACB7" width="360" stroke-width="1" stroke="#6DACB7" width="360" height="53.5"/>
+	<rect x="630" y="755.5" fill="#FFFFFF" width="360" stroke-width="1" stroke="#FFFFFF" width="360" height="53.5"/>
+	<text transform="matrix(1 0 0 1 704 798)" fill="#66C0C9" font-family="'LeagueGothic-Regular'" stroke-width="1" stroke="#66C0C9" font-family="'LeagueGothic-Regular'" font-size="46px">BACK TO MENU</text>
 </g>
 
-<g id="tw" class="button" transform="matrix(1 0 0 1 0 100)">
+<!-- <g id="tw" class="button" transform="matrix(1 0 0 1 0 100)">
 	<circle fill="#FFFFFF" cx="878.6" cy="506.1" stroke-width="1" stroke="#FFFFFF" cx="878.6" cy="506.1" r="50"/>
 	<g>
 		<g>
@@ -4308,6 +4308,19 @@
 			</g>
 		</g>
 	</g>
-</g>
+</g> -->
+
+	<g transform="matrix(1,0,0,1,0,420)">
+		<foreignObject width="100%" height="280" >
+			<div xmlns="http://www.w3.org/1999/xhtml" class="victory-submition-wrap">
+				<h2>Submit your victory and win!</h2>
+				<p><a href="#">Read about contest</a></p>
+				<form>
+					<input type="text" id="player-email" placeholder="Your E-mail address" />
+					<button class="button" type="submit">Submit</button>
+				</form>
+			</div>
+		</foreignObject>
+	</g>
 
 </svg>
