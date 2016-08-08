@@ -1,6 +1,18 @@
 = embedded_svg "outro.svg"
 
 :javascript
+  var message = '#{@message if @message.present?}'
+
+  if (message) {
+    alert(message);
+  }
+
+  $(document).ready( function() {
+      $('#email_form').attr('action', '#{summary_path}');
+      $('#email_form').attr('method', 'post');
+      $('#email_form').prepend("<input type='hidden' name='authenticity_token' value='#{form_authenticity_token}'>")
+    }
+  );
   $('g#back').on('click', function() {
     window.location.href = '/';
   });

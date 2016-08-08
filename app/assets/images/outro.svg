@@ -4311,12 +4311,12 @@
 </g> -->
 
 	<g transform="matrix(1,0,0,1,0,420)">
-		<foreignObject width="100%" height="280" >
+		<foreignObject width="100%" height="280">
 			<div xmlns="http://www.w3.org/1999/xhtml" class="victory-submition-wrap">
 				<h2>Submit your victory and win!</h2>
 				<p><a href="#">Read about contest</a></p>
-				<form>
-					<input type="text" id="player-email" placeholder="Your E-mail address" />
+				<form id="email_form">
+					<input type="text" id="player-email" name="email" placeholder="Your E-mail address" />
 					<button class="button" type="submit">Submit</button>
 				</form>
 			</div>
