@@ -385,6 +385,7 @@ class LevelController {
 
   private showSubmissionForm() {
     $("#submission").show();
+    $("#content").niceScroll();
     this.showQuestionContent();
   }
 

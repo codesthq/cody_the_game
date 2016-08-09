@@ -17,3 +17,4 @@
 //= require codemirror
 //= require codemirror/modes/ruby
 //= require game_controller
+//= require jquery.nicescroll.min
