@@ -1,7 +1,7 @@
 = embedded_svg "outro.svg"
 
 :javascript
-  var message = '#{@message if @message.present?}'
+  var message = '#{j(@message) if @message.present?}'
 
   if (message) {
     alert(message);
