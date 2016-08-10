@@ -5,11 +5,10 @@ class SummaryController < ApplicationController
   def update
     current_session.email = params[:email]
     if current_session.save
-      @message = "Thank you for your email."
+      redirect_to root_path
     else
       @message = "Your email is not valid"
+      render :show
     end
-
-    render :show
   end
 end
