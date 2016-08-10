@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160808135809) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.string   "ip"
-    t.string   "secure_token",              null: false
+    t.string   "secure_token"
     t.string   "email"
   end
 
