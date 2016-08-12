@@ -7,6 +7,12 @@
     alert(message);
   }
 
+  var success = '#{j(@show_success.to_s) if @show_success.present?}';
+
+  if (success) {
+    alert('test');
+  }
+
   $(document).ready( function() {
       $('#email_form').attr('action', '#{summary_path}');
       $('#email_form').attr('method', 'post');
