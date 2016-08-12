@@ -10,7 +10,8 @@
   var success = '#{j(@show_success.to_s) if @show_success.present?}';
 
   if (success) {
-    alert('test');
+    var html = "<h2>Thank you for your submission!</h2>"
+    $('.victory-submition-wrap').html(html);
   }
 
   $(document).ready( function() {
