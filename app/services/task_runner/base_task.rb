@@ -13,7 +13,7 @@ module TaskRunner
 
       result = TrustedSandbox.run_code runner_code
 
-      stderr = (result.status == "error" ? result.error.inspect : result.stderr.first.try(:chop) )
+      stderr = (result.status == "error" ? result.error.inspect : result.stderr.first.try(:chomp) )
       Response.new(result.status, result.stdout.first.try(:chop), stderr)
     end
 
