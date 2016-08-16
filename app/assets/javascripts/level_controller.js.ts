@@ -189,6 +189,8 @@ class LevelController {
     let levelId = this.game.levels[this.position].id;
     this.loadLevelCharacter(this.position);
     this.loadLevelData(levelId);
+
+    $('#level-counter-value').text(this.position + 1);
   }
 
   enterLevel() {
