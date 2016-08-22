@@ -864,7 +864,7 @@
 	<g id="bulb0" class="bulb">
 		<polygon style="fill:#F1ECE3;" points="938.5,156.9 938.5,64.9 373.4,64.9 373.4,285.1 938.5,285.1 938.5,203.1 987.9,180.9 "/>
 		<!-- <text class="bulb-matrix" transform="matrix(1 0 0 1 380 80)"></text> -->
-		<foreignObject x="380" y="80" width="552" height="190">
+		<foreignObject x="380" y="80" width="552" height="200">
 			<div xmlns="http://www.w3.org/1999/xhtml" class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"></div></div></div>
 		</foreignObject>
 	</g>
@@ -872,7 +872,7 @@
 	<g id="bulb1" class="bulb">
 		<polygon style="fill:#F1ECE3;" points="370.9,331 370.9,409.4 321.5,433.4 370.9,455.6 370.9,532.1 940.9,532.1 940.9,331 "/>
 		<!-- <text  class="bulb-matrix" transform="matrix(1 0 0 1 380 338)"></text> -->
-		<foreignObject x="380" y="338" width="552" height="190">
+		<foreignObject x="380" y="338" width="552" height="200">
 			<div xmlns="http://www.w3.org/1999/xhtml" class="scrollable-area-wrap"><div class="scrollable-area"><div class="bulb-body"></div></div></div>
 		</foreignObject>
 	</g>

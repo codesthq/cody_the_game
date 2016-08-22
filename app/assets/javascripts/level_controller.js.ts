@@ -1,4 +1,5 @@
 /// <reference path='./codemirror.d.ts'/>
+/// <reference path='./jquery.nicescroll.d.ts'/>
 
 class LevelController {
   game:            GameController;
@@ -388,6 +389,7 @@ class LevelController {
   private showSubmissionForm() {
     $("#submission").show();
     $("#content").niceScroll();
+    $(".scrollable-area-wrap").niceScroll();
     this.showQuestionContent();
   }
 
