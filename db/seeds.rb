@@ -261,7 +261,7 @@ migration_data = [
               # for o = [] expected output is  "o responds to :size method"
               # for o = String expected output is  "o responds to :new method"
 
-              Your code should work with any king of object.
+              Your code should work with any kind of object.
             CODE
             points: 2, test_class: "Challenge::Case"
         }
