@@ -1,3 +1,3 @@
 class GameSessionSerializer < ActiveModel::Serializer
-  attributes :id, :current_level
+  attributes :cookie_key, :current_level
 end
