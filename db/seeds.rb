@@ -78,10 +78,12 @@ migration_data = [
             content: <<-CODE.strip_heredoc,
               Write a method called format_number which converts given integer number to string like this:
 
-              format_number(1234)    #=> '1_234'
-              format_number(-1234)   #=> '-1_234'
-              format_number(134567)  #=> '134_567'
-              format_number(49)      #=> '49'
+              format_number(49)         #=> '49'
+              format_number(12345)      #=> '12_345'
+              format_number(-134567)    #=> '-134_567'
+              format_number(1234567890) #=> '1_234_567_890'
+
+              The idea is to create groups of 3 digits separated by '_' character.
             CODE
             points: 1, test_class: "Challenge::FormatNumber",
             start_code: <<-CODE.strip_heredoc
@@ -146,7 +148,7 @@ migration_data = [
               Re-implement it in a way following code will work properly:
 
               10 % 3 #=> 1
-              23 % 0 # raises ZeroDivisionError error
+              23 % 0 # raises ZeroDivisionError error q
 
               Don't worry about negative numbers. I don't care about them.
             CODE
