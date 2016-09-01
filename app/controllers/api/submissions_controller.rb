@@ -2,6 +2,8 @@ class API::SubmissionsController < API::BaseController
   before_action :set_submission, only: :show
 
   def show
+    authorize_submission! @submission
+
     render json: @submission
   end
 
