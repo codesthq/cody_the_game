@@ -1,5 +1,10 @@
 class SummaryController < ApplicationController
   def show
+    if summary_authorizer.authorized?
+      render :show
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -11,5 +16,15 @@ class SummaryController < ApplicationController
       @message = "Your email is not valid"
       render :show
     end
+  end
+
+  private
+
+  def summary_authorizer
+    @summary_authorizer = SummaryAuthorizer.new(current_session)
+  end
+
+  def authorized?
+    summary_authorizer
   end
 end
