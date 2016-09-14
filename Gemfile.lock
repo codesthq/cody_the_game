@@ -20,6 +20,9 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_attr (0.9.0)
+      activemodel (>= 3.0.2, < 5.1)
+      activesupport (>= 3.0.2, < 5.1)
     active_model_serializers (0.9.3)
       activemodel (>= 3.2)
     activejob (4.2.5)
@@ -214,6 +217,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_attr
   active_model_serializers
   acts_as_list
   airbrake (~> 4)

@@ -5,4 +5,6 @@ class Submission < ActiveRecord::Base
   enum status: [:pending, :failed, :succeed]
 
   validates :content, presence: true
+
+  scope :correct, -> { where(status: 2) }
 end

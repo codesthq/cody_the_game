@@ -15,6 +15,12 @@ Rails.application.routes.draw do
     resource :ping, only: [:show]
   end
 
+  namespace :statistics do
+    resources :submissions
+
+    root to: "dashboard#show"
+  end
+
   root to: "menu#show"
   get "/game", to: "game#show"
   get "/summary", to: "summary#show"

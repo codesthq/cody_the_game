@@ -1,0 +1,41 @@
+%h1
+  Wyników:
+  = @submissions.count
+
+= form_for @filter_form, as: :filter, url: statistics_submissions_path, method: :get, html: { id: "filter-form" } do |f|
+  .field
+    = f.label :finished_game, "Wyniki dla graczy, którzy ukończyli grę"
+    = f.check_box :finished_game
+  .field
+    = f.label :game_session_id, "Gracz"
+    = f.select(:game_session_id,
+      options_for_select(@sessions.map { |session| [session.email, session.id] },
+      @filter_form.game_session_id), include_blank: "Wszystkie")
+  .field
+    = f.label :level_id, "Poziom"
+    = f.select(:level_id,
+      options_for_select(@levels.map { |level| ["Poziom #{level.id}", level.id] },
+      @filter_form.level_id), include_blank: "Wszystkie")
+  .field
+    = f.submit "Szukaj", class: "ui button  floated right"
+    = link_to "Wyczyść filtry", statistics_submissions_path, class: "ui button basic floated right"
+
+%table
+  %thead
+    %tr
+      %td{ style: "width:100px" } Id
+      %td{ style: "width:300px" } Data
+      %td{ style: "width:100px" } Gracz
+      %td{ style: "width:100px" } Poziom
+      %td{ style: "width:50%" } Odpowiedz
+  %tbody
+    - @submissions.each do |submission|
+      %tr
+        %td{ colspan: 5, class: "table-separator"}
+      %tr{ id: submission.id }
+        %td= link_to(submission.id, statistics_submission_path(submission))
+        %td= submission.created_at
+        %td= link_to(submission.game_session.email.presence || submission.game_session.cookie_key, statistics_submissions_path(params: { filter: { game_session_id: submission.game_session_id } }))
+        %td= link_to(submission.level_id, statistics_submissions_path(params: { filter: { level_id: submission.level_id } }))
+        %td
+          %textarea{ style: "width: 600px;height:300px" }= submission.content

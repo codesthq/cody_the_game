@@ -20,6 +20,7 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'redis-namespace'
 gem 'airbrake', '~> 4'
 gem 'inline_svg'
+gem 'active_attr'
 
 group :development, :test do
   gem 'byebug'

@@ -1,0 +1,20 @@
+%table
+  %tr
+    %td Id
+    %td= link_to(@submission.id, statistics_submission_path(@submission))
+  %tr
+    %td Status
+    %td= @submission.status
+  %tr
+    %td Data
+    %td= @submission.created_at
+  %tr
+    %td Gracz
+    %td= @submission.game_session.email.presence || @submission.game_session.cookie_key
+  %tr
+    %td Poziom
+    %td= @submission.level_id
+  %tr
+    %td Odpowiedz
+    %td
+      %textarea{ style: "width: 600px;height:300px" }= @submission.content
